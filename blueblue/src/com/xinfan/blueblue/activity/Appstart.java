@@ -11,7 +11,7 @@ public class Appstart extends Activity{
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);	
 		setContentView(R.layout.appstart);
 		//requestWindowFeature(Window.FEATURE_NO_TITLE);//»•µÙ±ÍÃ‚¿∏
