@@ -23,20 +23,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="微信"
+            android:text="布鲁"
             android:textColor="#000000"
             android:textSize="35sp" />
             
         </LinearLayout>
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="By：谜@BUAA"
-            android:textColor="#000"
-            android:textSize="30dp" />
 
         <Button
             android:id="@+id/main_login_btn"
@@ -56,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="6dp"
-            android:text="使用QQ号或者微信号登录"
+            android:text="使用手机号码登录"
             android:textSize="14sp"
             android:textColor="#444" />
 
@@ -79,7 +70,7 @@
             android:layout_height="wrap_content"
             android:padding="6dp"
             android:gravity="center"
-            android:text="【点击跳转到主界面】\n如果你没有QQ号，请注册"
+            android:text="请注册"
             android:textSize="14sp"
             android:textColor="#444"  />
     </LinearLayout>
