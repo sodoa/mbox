@@ -8,6 +8,14 @@
         android:targetSdkVersion="15" />
 
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -47,9 +55,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-
         -->
         <activity
             android:name=".MainWeixin"
@@ -85,18 +90,9 @@
             android:name="MainTopRightDialog"
             android:theme="@style/MyDialogStyleTop" />
         
-        
         <activity
-            android:name="com.xinfan.blueblue.activity.MainActivity" android:screenOrientation="portrait"/>
+            android:name="com.xinfan.blueblue.activity.MainActivity"
+            android:screenOrientation="portrait" />
     </application>
-	
-    
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-	<uses-permission android:name="android.permission.RECORD_AUDIO" />
-	<uses-permission android:name="android.permission.WRITE_SETTINGS" />  
-	<uses-permission android:name="android.permission.WAKE_LOCK" />
+
 </manifest>
