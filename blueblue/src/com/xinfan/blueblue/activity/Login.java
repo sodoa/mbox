@@ -25,7 +25,7 @@ public class Login extends Activity {
     }
 
     public void login_mainweixin(View v) {
-    	if("buaa".equals(mUser.getText().toString()) && "123".equals(mPassword.getText().toString()))   //≈–∂œ ’ ∫≈∫Õ√‹¬Î
+    	if("admin".equals(mUser.getText().toString()) && "1".equals(mPassword.getText().toString()))   //≈–∂œ ’ ∫≈∫Õ√‹¬Î
         {
              Intent intent = new Intent();
              intent.setClass(Login.this,LoadingActivity.class);
