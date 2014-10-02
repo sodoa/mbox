@@ -238,10 +238,11 @@ public class Viewpager extends Activity {
 	}
     
     public void startbutton(View v) {  
-      	Intent intent = new Intent();
-		intent.setClass(Viewpager.this,Viewdoor.class);
-		startActivity(intent);
-		this.finish();
+		
+		Intent intent = new Intent (Viewpager.this,Welcome.class);			
+		startActivity(intent);			
+		Viewpager.this.finish();
+		
       }  
    
 }
