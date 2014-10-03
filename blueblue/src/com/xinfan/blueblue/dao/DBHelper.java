@@ -1,4 +1,4 @@
-package com.xinfan.blueblue.request;
+package com.xinfan.blueblue.dao;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -8,7 +8,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
+
+import com.xinfan.blueblue.util.LogUtil;
 
 /**
  *
@@ -20,19 +21,10 @@ public class DBHelper extends SQLiteOpenHelper{
 	private Context context;
 	private SQLiteDatabase db;
 	private static DBHelper mInstance=null;
-	private static final String DBNAME = "cacheappBigData.db";
+	private static final String DBNAME = "db.db";
 	private static final int VERSION = 1;
 
-//	public  DBHelper(Context context) {
-//		this.context = context;
-//		if(dbHelper == null)
-//		dbHelper = new SQLiteHelper(this.context);
-//	}
-//	private Context context;
-
-
 	private DBHelper(Context context, CursorFactory factory) {
-//		super(context, mDbName, factory, mDbVersion);
 		super(context, DBNAME, factory, VERSION);
 	}
 
@@ -62,13 +54,12 @@ public class DBHelper extends SQLiteOpenHelper{
 		Cursor cursor = null;
 		try {
 			db = getReadableDatabase(); // 获得数据库读对象
-			cursor = db.rawQuery("select cacheData,createTime from cacheUrlData where url = ?", new String[]{url});
+			cursor = db.rawQuery("select cache_data,create_time from cache_url_data where url = ?", new String[]{url});
 			while (cursor.moveToNext()) {
 				String data =cursor.getString(0);
 				String time =cursor.getString(1);
 				cursor.close();
 				return new String[]{data,time};
-//				return cursor.getString(0);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -100,7 +91,7 @@ public class DBHelper extends SQLiteOpenHelper{
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			Log.i("db", url);
+			LogUtil.i("db", url);
 		} finally {
 //			db.close();
 		}
@@ -221,13 +212,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-/*		 String [] tables = context.getResources().getStringArray(R.array.sql);
-		 for (int i = 0; i < tables.length; i++) {
-			 db.execSQL(tables[i]);
-		 }*/
-//		 boolean cof = new DBHelper(context).isColumnExist("emp", "age");
-//		 String updateSql = "alter table emp add column age text";
-//		 if(!cof) db.execSQL(updateSql);
+		
 	}
 
 	@Override
@@ -296,4 +281,14 @@ public class DBHelper extends SQLiteOpenHelper{
 		}
 		return result;
 	}
+
+	public SQLiteDatabase getDb() {
+		return db;
+	}
+
+	public void setDb(SQLiteDatabase db) {
+		this.db = db;
+	}
+	
+	
 }

@@ -26,6 +26,7 @@ import android.os.Handler;
 import android.os.Message;
 
 import com.alibaba.fastjson.JSONObject;
+import com.xinfan.blueblue.dao.DBHelper;
 import com.xinfan.blueblue.util.LogUtil;
 
 public class AnsynHttpRequest {
