@@ -34,13 +34,13 @@ import android.widget.EditText;
 
 
 public class Register extends Activity {
-	private EditText mMobile; // ÊÖ»úºÅÂë±à¼­¿ò
-	private EditText mPassword; // ÃÜÂë±à¼­¿ò
-	private EditText rePassword; //ÖØ¸´ ÃÜÂë±à¼­¿ò
-	private EditText mRanCode; // ÑéÖ¤Âë±à¼­¿ò
-	private EditText mNickname; // êÇ³Æ
+	private EditText mMobile; 
+	private EditText mPassword; 
+	private EditText rePassword; 
+	private EditText mRanCode; 
+	private EditText mNickname;
 	private  static String mobile,password,repassword,nickname,rancode;
-	private  String gencode;//Éú³ÉµÄÑéÖ¤Âë
+	private  String gencode;
 	private Handler handler;
 	private final Pattern p = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$");  
     @Override
@@ -56,16 +56,16 @@ public class Register extends Activity {
        handler=new Handler(){
     	   public void handleMessage(Message msg){
     	        
-    	   String message=(String)msg.obj;//obj²»Ò»¶¨ÊÇStringÀà£¬¿ÉÒÔÊÇ±ðµÄÀà£¬¿´ÓÃ»§¾ßÌåµÄÓ¦ÓÃ
-    	   if(message.equals("·¢ËÍ³É¹¦")){
+    	   String message=(String)msg.obj;
+    	   if(message.equals("ï¿½ï¿½ï¿½Í³É¹ï¿½")){
     		   new AlertDialog.Builder(Register.this)
   				.setIcon(getResources().getDrawable(R.drawable.login_editbox))
-  				.setMessage("·¢ËÍ³É¹¦£¡Çë×¢Òâ²éÊÕ£¡")
+  				.setMessage("ï¿½ï¿½ï¿½Í³É¹ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½Õ£ï¿½")
   				.create().show();
    		}else{
    			 new AlertDialog.Builder(Register.this)
     			.setIcon(getResources().getDrawable(R.drawable.login_error_icon))
-    			.setMessage("·¢ËÍÊ§°Ü£¡ÑéÖ¤Âë·¢ËÍÓöµ½Î´Öª´íÎó£¡")
+    			.setMessage("ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü£ï¿½ï¿½ï¿½Ö¤ï¿½ë·¢ï¿½ï¿½ï¿½ï¿½Î´Öªï¿½ï¿½ï¿½ï¿½")
     			.create().show();
    		} 								                                                     }
     	   
@@ -85,89 +85,89 @@ public class Register extends Activity {
     	 if(nickname==null||nickname.length()<=0){
           	new AlertDialog.Builder(Register.this)
   			.setIcon(getResources().getDrawable(R.drawable.login_error_icon))
-  			.setTitle("êÇ³Æ´íÎó")
-  			.setMessage("ÄúÃ»ÓÐÌîÐ´êÇ³Æ»òêÇ³ÆÒÑ±»×¢²á£¡")
+  			.setTitle("ï¿½Ç³Æ´ï¿½ï¿½ï¿½")
+  			.setMessage("ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ç³Æ»ï¿½ï¿½Ç³ï¿½ï¿½Ñ±ï¿½×¢ï¿½á£¡")
   			.create().show();
           }
-    	else if(password==null||password.length()<=0)   //ÅÐ¶Ï ÃÜÂëÊÇ·ñÎª¿Õ
+    	else if(password==null||password.length()<=0)   //ï¿½Ð¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½
         {
     		new AlertDialog.Builder(Register.this)
 			.setIcon(getResources().getDrawable(R.drawable.login_error_icon))
-			.setTitle("ÃÜÂëÎ´ÉèÖÃ")
-			.setMessage("ÃÜÂë²»ÄÜÎª¿Õ£¡")
+			.setTitle("ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½")
+			.setMessage("ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Îªï¿½Õ£ï¿½")
 			.create().show();
           }
-        else if(!(password.equals(repassword)))   //ÅÐ¶Ï Á½´ÎÃÜÂëÊÇ·ñÒ»Ñù
+        else if(!(password.equals(repassword)))   //ï¿½Ð¶ï¿½ }ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Ò»ï¿½ï¿½
         {
         	new AlertDialog.Builder(Register.this)
 			.setIcon(getResources().getDrawable(R.drawable.login_error_icon))
-			.setTitle("ÃÜÂë´íÎó")
-			.setMessage("Á½´ÎÊäÈëÃÜÂë²»Ò»ÖÂ£¡")
+			.setTitle("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")
+			.setMessage("}ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë²»Ò»ï¿½Â£ï¿½")
 			.create().show();
          }
         else if(!((p.matcher(mobile)).matches())){
         	new AlertDialog.Builder(Register.this)
 			.setIcon(getResources().getDrawable(R.drawable.login_error_icon))
-			.setTitle("ÊÖ»úºÅÂë´íÎó")
-			.setMessage("ÄúÃ»ÓÐÌîÐ´ÊÖ»úºÅÂë»ò¸ñÊ½´íÎó£¡")
+			.setTitle("ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")
+			.setMessage("ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½")
 			.create().show();
         }
         else if(mobile.equals("18674866463")){
         	new AlertDialog.Builder(Register.this)
 			.setIcon(getResources().getDrawable(R.drawable.login_error_icon))
-			.setTitle("ÊÖ»úºÅÂë´íÎó")
-			.setMessage("ÄúµÄÊÖ»úºÅÂëÒÑ¾­±»Õ¼ÓÃ£¡")
+			.setTitle("ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")
+			.setMessage("ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½Õ¼ï¿½Ã£ï¿½")
 			.create().show();
         }
         else if(rancode==null||rancode.length()<=0){
         	new AlertDialog.Builder(Register.this)
 			.setIcon(getResources().getDrawable(R.drawable.login_error_icon))
-			.setTitle("ÑéÖ¤Âë´íÎó")
-			.setMessage("ÇëÌîÐ´ÑéÖ¤Âë£¡")
+			.setTitle("ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½")
+			.setMessage("ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ö¤ï¿½ë£¡")
 			.create().show();
         }
         else if(!(rancode.equals(gencode))){
         	new AlertDialog.Builder(Register.this)
 			.setIcon(getResources().getDrawable(R.drawable.login_error_icon))
-			.setTitle("ÑéÖ¤Âë´íÎó")
-			.setMessage("ÑéÖ¤Âë´íÎó!")
+			.setTitle("ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½")
+			.setMessage("ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½!")
 			.create().show();
         }
         else{
             Intent intent = new Intent();
             intent.setClass(Register.this,LoadingActivity.class);
             startActivity(intent);
-            //Toast.makeText(getApplicationContext(), "µÇÂ¼³É¹¦", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "ï¿½ï¿½Â¼ï¿½É¹ï¿½", Toast.LENGTH_SHORT).show();
         }
     	
-    	//µÇÂ¼°´Å¥
+    	//ï¿½ï¿½Â¼ï¿½ï¿½Å¥
     	/*
       	Intent intent = new Intent();
 		intent.setClass(Login.this,Whatsnew.class);
 		startActivity(intent);
-		Toast.makeText(getApplicationContext(), "µÇÂ¼³É¹¦", Toast.LENGTH_SHORT).show();
+		Toast.makeText(getApplicationContext(), "ï¿½ï¿½Â¼ï¿½É¹ï¿½", Toast.LENGTH_SHORT).show();
 		this.finish();*/
       }  
-    public void register_back(View v) {     //±êÌâÀ¸ ·µ»Ø°´Å¥
+    public void register_back(View v) {     //ï¿½ï¿½ï¿½ï¿½8 ï¿½ï¿½ï¿½Ø°ï¿½Å¥
       	this.finish();
       }  
     
-    //·¢ËÍÊÖ»úÑéÖ¤Âë
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½
     public   void  sendSMS(View v){   
     	mobile=mMobile.getText().toString();
     	if(!((p.matcher(mobile)).matches())){
         	new AlertDialog.Builder(Register.this)
 			.setIcon(getResources().getDrawable(R.drawable.login_error_icon))
-			.setTitle("ÊÖ»úºÅÂë´íÎó")
-			.setMessage("ÄúÃ»ÓÐÌîÐ´ÊÖ»úºÅÂë»ò¸ñÊ½´íÎó£¡")
+			.setTitle("ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")
+			.setMessage("ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½")
 			.create().show();
         	return ;
         }
-    	//ÏûÏ¢ÄÚÈÝ
-    	String msg="Äú×¢²á²¼Â³µÄÑéÖ¤ÂëÊÇ"+gencode;
-    	  // Ê¹ÓÃNameValuePairÀ´±£´æÒª´«µÝµÄPost²ÎÊý
+    	//ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
+    	String msg="ï¿½ï¿½×¢ï¿½á²¼Â³ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½"+gencode;
+    	  // Ê¹ï¿½ï¿½NameValuePair4ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ýµï¿½Postï¿½ï¿½ï¿½ï¿½
     	  final List<NameValuePair> params = new ArrayList<NameValuePair>();
-    	  // Ìí¼ÓÒª´«µÝµÄ²ÎÊý
+    	  // ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ÝµÄ²ï¿½ï¿½ï¿½
     	  NameValuePair pair1 = new BasicNameValuePair("name", "aasdkjasdkj");
     	  NameValuePair pair2 = new BasicNameValuePair("password","asdsjka");
     	  NameValuePair pair3 = new BasicNameValuePair("mobile", mobile);
@@ -185,11 +185,11 @@ public class Register extends Activity {
 	    		HttpEntity httpEntity = new UrlEncodedFormEntity(params, "gb2312");
 	    		httpPost.setEntity(httpEntity);
 	    		HttpResponse httpResponse=httpClient.execute(httpPost);
-				//HttpStatus.SC_OK±íÊ¾Á¬½Ó³É¹¦
+				//HttpStatus.SC_OKï¿½ï¿½Ê¾lï¿½Ó³É¹ï¿½
 				if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) 
 			    {
 					Message message = Message.obtain();
-					message.obj="·¢ËÍ³É¹¦";
+					message.obj="ï¿½ï¿½ï¿½Í³É¹ï¿½";
 					handler.sendMessage(message);
 			    } 
 				
@@ -205,7 +205,7 @@ public class Register extends Activity {
 		Looper.loop();
     }
     
-  		//Éú³ÉÑéÖ¤Âë
+  		//ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½
 	    public String genRanCode(int lenght){
 		 String base = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789";     
 		    Random random = new Random();     

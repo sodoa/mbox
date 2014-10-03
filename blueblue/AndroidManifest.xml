@@ -28,6 +28,7 @@
             android:theme="@style/Anim_style2" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -61,7 +62,7 @@
         <activity
             android:name=".Login"
             android:theme="@android:style/Theme.NoTitleBar" />
-          <activity
+        <activity
             android:name=".Register"
             android:theme="@android:style/Theme.NoTitleBar" />
         <activity
@@ -91,7 +92,12 @@
         <activity
             android:name="MainTopRightDialog"
             android:theme="@style/MyDialogStyleTop" />
-        
+        <activity
+            android:name="SendMessageActivity"
+            android:theme="@style/Anim_style2" />
+        <activity
+            android:name="ThemeSetActivity"
+            android:theme="@style/Anim_style2" />        
         <activity
             android:name="com.xinfan.blueblue.activity.MainActivity"
             android:screenOrientation="portrait" />

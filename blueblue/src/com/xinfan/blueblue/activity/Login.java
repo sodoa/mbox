@@ -1,5 +1,7 @@
 package com.xinfan.blueblue.activity;
 
+import java.util.HashMap;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -7,6 +9,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import com.xinfan.blueblue.request.AnsynHttpRequest;
+import com.xinfan.blueblue.request.ObserverCallBack;
+import com.xinfan.blueblue.request.Response;
 
 public class Login extends Activity {
 	private EditText mUser; 
@@ -19,6 +25,14 @@ public class Login extends Activity {
 
 		mUser = (EditText) findViewById(R.id.login_user_edit);
 		mPassword = (EditText) findViewById(R.id.login_passwd_edit);
+		
+/*		AnsynHttpRequest.requestSimpleByPost(this, new ObserverCallBack(){
+
+			@Override
+			public void call(Response data) {
+				data.getCode();
+				data.getValue();
+			}}, "login", new HashMap());*/
 
 	}
 

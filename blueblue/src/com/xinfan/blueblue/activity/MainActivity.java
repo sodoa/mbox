@@ -3,6 +3,7 @@ package com.xinfan.blueblue.activity;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -21,6 +22,7 @@ public class MainActivity extends Activity implements OnViewChangeListener, OnCl
 	private int mCurSel;
 	private ImageView set;
 	private ImageView add;
+	private ImageView send;
 
 	private TextView liaotian;
 	private TextView faxian;
@@ -73,11 +75,18 @@ public class MainActivity extends Activity implements OnViewChangeListener, OnCl
 
 		set = (ImageView) findViewById(R.id.set);
 		add = (ImageView) findViewById(R.id.add);
+		send = (ImageView) findViewById(R.id.send);
 
 		set.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				uploadImage(MainActivity.this);
+			}
+		});
+		send.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				uploadImage3(MainActivity.this);
 			}
 		});
 		add.setOnClickListener(new View.OnClickListener() {
@@ -244,9 +253,17 @@ public class MainActivity extends Activity implements OnViewChangeListener, OnCl
 		menuWindow.showAtLocation(MainActivity.this.findViewById(R.id.set), Gravity.TOP | Gravity.RIGHT, 10, 230);
 	}
 
+	public void uploadImage3(final Activity context) {
+      	Intent intent = new Intent();
+		intent.setClass(this,SendMessageActivity.class);
+		startActivity(intent);
+		//this.finish();
+	}
+	
 	public void uploadImage2(final Activity context) {
-		menuWindow2 = new SelectAddPopupWindow(MainActivity.this, itemsOnClick2);
-		menuWindow2.showAtLocation(MainActivity.this.findViewById(R.id.add), Gravity.TOP | Gravity.RIGHT, 10, 230);
+     	Intent intent = new Intent();
+		intent.setClass(this,ThemeSetActivity.class);
+		startActivity(intent);
 	}
 
 	private OnClickListener itemsOnClick = new OnClickListener() {
