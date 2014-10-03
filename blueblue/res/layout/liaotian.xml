@@ -8,14 +8,6 @@
 		          android:layout_width="fill_parent"
 	              android:layout_height="wrap_content"
 		          >
-		          <ImageView
-		              android:id="@+id/l1"
-		              android:layout_alignParentLeft="true" 
-		              android:layout_width="50dip"
-	              	  android:layout_height="50dip"
-	              	  android:src="@drawable/icon"
-	              	  android:scaleType="fitCenter"
-		              />
 		          <LinearLayout 
 		              android:id="@+id/l2"
 		              android:layout_alignParentRight="true" 
@@ -49,14 +41,14 @@
 		              	  android:textColor="@color/gray"
 			              />
 		          </LinearLayout>
-		          <LinearLayout 
-			          android:orientation="vertical" 
-			          android:layout_toLeftOf="@id/l2"
-			          android:layout_toRightOf="@id/l1"
-			          android:paddingLeft="8dip"
-			          android:layout_width="match_parent"
+
+		          <LinearLayout
+		              android:layout_width="match_parent"
 		              android:layout_height="wrap_content"
-		          >
+		              android:layout_toLeftOf="@id/l2"
+		              android:orientation="vertical"
+		              android:paddingLeft="8dip" >
+
 			          <TextView
 			              android:id="@+id/name"
 			              android:layout_width="wrap_content"
@@ -83,5 +75,40 @@
 			              />
 		          </LinearLayout>
 		      </RelativeLayout>
+		      
+
+		          <RelativeLayout
+		              android:layout_width="fill_parent"
+		              android:layout_height="wrap_content"
+		              android:orientation="horizontal"
+		              android:paddingLeft="8dip" >
+
+			          <TextView
+			              android:id="@+id/name"
+			              android:layout_width="wrap_content"
+			              android:layout_height="wrap_content"
+			              android:gravity="center"
+			              android:padding="2dip"
+			              android:singleLine="true"
+			              android:text="肖秀"
+			              android:textColor="@color/gray"
+			              android:textSize="9dip" android:background="@drawable/keyword_btn" />
+
+			          <TextView
+			              android:id="@+id/lastmsg"
+			              android:layout_width="wrap_content"
+			              android:layout_height="wrap_content"
+			              android:layout_alignParentTop="true"
+			              android:layout_marginLeft="26dp"
+			              android:layout_toRightOf="@+id/name"
+			              android:gravity="center"
+			              android:padding="2dip"
+			              android:singleLine="true"
+			              android:text="这是唯"
+			              android:textColor="@color/gray"
+			              android:textSize="9dip" android:background="@drawable/keyword_btn" />
+
+		          </RelativeLayout>           
+           
 		      
 </LinearLayout>

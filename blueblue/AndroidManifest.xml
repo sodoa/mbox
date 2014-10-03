@@ -97,7 +97,11 @@
             android:theme="@style/Anim_style2" />
         <activity
             android:name="ThemeSetActivity"
-            android:theme="@style/Anim_style2" />        
+            android:theme="@style/Anim_style2" /> 
+         <activity
+            android:name="ViewMessageActivity"
+            android:theme="@style/Anim_style2" />            
+        
         <activity
             android:name="com.xinfan.blueblue.activity.MainActivity"
             android:screenOrientation="portrait" />
