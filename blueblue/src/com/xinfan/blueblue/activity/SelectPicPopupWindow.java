@@ -3,6 +3,7 @@ package com.xinfan.blueblue.activity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -32,7 +33,11 @@ public class SelectPicPopupWindow extends PopupWindow {
 
 			public void onClick(View v) {
 				//SaveDate.saveDate(context, new OAuthV2()); 
-				context.finish();
+				
+				Intent intent = new Intent();
+	        	intent.setClass(v.getContext(),Exit.class);
+	        	v.getContext().startActivity(intent);
+				//context.finish();
 			}
 		});
 		this.setContentView(mMenuView);

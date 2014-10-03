@@ -24,7 +24,7 @@ public class Exit extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Toast.makeText(getApplicationContext(), "ÌáÊ¾£ºµã»÷´°¿ÚÍâ²¿¹Ø±Õ´°¿Ú£¡", 
+				Toast.makeText(getApplicationContext(), "é€€å‡º", 
 						Toast.LENGTH_SHORT).show();	
 			}
 		});
@@ -41,7 +41,7 @@ public class Exit extends Activity {
       }  
 	public void exitbutton0(View v) {  
     	this.finish();
-    	MainWeixin.instance.finish();//¹Ø±ÕMain Õâ¸öActivity
+    	MainActivity.instance.finish();
       }  
 	
 }

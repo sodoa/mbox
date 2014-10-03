@@ -16,6 +16,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements OnViewChangeListener, OnClickListener {
+	
+	public static MainActivity instance;
+	
 	private MyScrollLayout mScrollLayout;
 	private LinearLayout[] mImageViews;
 	private int mViewCount;
@@ -41,6 +44,7 @@ public class MainActivity extends Activity implements OnViewChangeListener, OnCl
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		init();
+		instance = this;
 	}
 
 	private void init() {
