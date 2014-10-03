@@ -1,5 +1,7 @@
 package com.xinfan.blueblue.activity;
 
+import com.xinfan.blueblue.request.AnsynHttpRequest;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
