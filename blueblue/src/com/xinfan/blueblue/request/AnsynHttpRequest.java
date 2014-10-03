@@ -57,7 +57,7 @@ public class AnsynHttpRequest {
 	public static void requestByGet(Context context, final ObserverCallBack callBack, String url, Map<String, String> map, boolean isCache, boolean isShowDialog) {
 		// 组织URL
 		StringBuffer buffer = new StringBuffer();
-		buffer.append(C.http.http_request_head)
+		buffer.append(Constants.http.http_request_head)
 		// .append(context.getResources().getString(url))
 				.append("?");
 		boolean listData = true;
@@ -178,7 +178,7 @@ public class AnsynHttpRequest {
 
 		// 组织URL
 		StringBuffer buffer = new StringBuffer();
-		buffer.append(C.http.http_request_head);
+		buffer.append(Constants.http.http_request_head);
 		// buffer.append(context.getResources().getString(url));
 
 		String requestUrl = buffer.toString();
@@ -192,7 +192,7 @@ public class AnsynHttpRequest {
 
 		// 组织URL
 		StringBuffer buffer = new StringBuffer();
-		buffer.append(C.http.http_request_head);
+		buffer.append(Constants.http.http_request_head);
 
 		String requestUrl = buffer.toString();
 		// requestUrl = requestUrl.substring(0,requestUrl.length()-1);
@@ -227,7 +227,7 @@ public class AnsynHttpRequest {
 		if (http_head != null)
 			buffer.append(http_head);
 		else
-			buffer.append(C.http.http_request_head);
+			buffer.append(Constants.http.http_request_head);
 
 		String requestUrl = buffer.toString();
 		// requestUrl = requestUrl.substring(0,requestUrl.length()-1);

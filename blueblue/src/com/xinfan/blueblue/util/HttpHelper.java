@@ -27,7 +27,6 @@ import android.util.Log;
 import com.xinfan.blueblue.request.Constants;
 import com.xinfan.blueblue.request.DataMap;
 import com.xinfan.blueblue.request.DialogFactory;
-import com.xinfan.blueblue.request.JSONUtils;
 import com.xinfan.blueblue.request.ResponseCallBack;
 import com.xinfan.blueblue.request.SharePreferenceUtil;
 

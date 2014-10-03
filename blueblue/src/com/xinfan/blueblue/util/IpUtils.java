@@ -1,4 +1,4 @@
-package com.xinfan.blueblue.request;
+package com.xinfan.blueblue.util;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

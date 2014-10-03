@@ -24,6 +24,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.xinfan.blueblue.util.JSONUtils;
+
 public class HttpHelper {
 
 	public static String httpaddress = "";

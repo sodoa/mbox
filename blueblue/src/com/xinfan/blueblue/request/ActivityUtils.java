@@ -19,12 +19,6 @@ public class ActivityUtils {
 		} catch (Exception e) {
 
 		}
-
-		/*
-		 * // 得到InputMethodManager的实例 if (imm.isActive()) { // 如果开启 imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_NOT_ALWAYS); //
-		 * 关闭软键盘，开启方法相同，这个方法是切换开启与关闭状态的 }
-		 */
-
 	}
 
 	public static String getPhone(Activity context) {
