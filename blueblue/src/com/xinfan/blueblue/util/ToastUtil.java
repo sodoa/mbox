@@ -1,69 +1,137 @@
 package com.xinfan.blueblue.util;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.widget.Toast;
 
-import com.xinfan.blueblue.exception.AppException;
+public class ToastUtil {
+	
+	private static Handler handler = new Handler(Looper.getMainLooper());
+	private static Toast toast = null;
+	private static Object synObj = new Object();
 
-public class ToastUtil
-{
-  private static Toast toast;
+	/**
+	 * Toast发送消息，默认Toast.LENGTH_SHORT
+	 * 
+	 * @author WikerYong Email:<a href="#">yw_312@foxmail.com</a>
+	 * @version 2012-5-22 上午11:13:10
+	 * @param act
+	 * @param msg
+	 */
+	public static void showMessage(final Context act, final String msg) {
+		showMessage(act, msg, Toast.LENGTH_SHORT);
+	}
 
-  public static void cancel()
-  {
-    if (toast != null)
-      toast.cancel();
-  }
+	/**
+	 * Toast发送消息，默认Toast.LENGTH_LONG
+	 * 
+	 * @author WikerYong Email:<a href="#">yw_312@foxmail.com</a>
+	 * @version 2012-5-22 上午11:13:10
+	 * @param act
+	 * @param msg
+	 */
+	public static void showMessageLong(final Context act, final String msg) {
+		showMessage(act, msg, Toast.LENGTH_LONG);
+	}
 
-  public static void onStop()
-  {
-    cancel();
-  }
+	/**
+	 * Toast发送消息，默认Toast.LENGTH_SHORT
+	 * 
+	 * @author WikerYong Email:<a href="#">yw_312@foxmail.com</a>
+	 * @version 2012-5-22 上午11:13:35
+	 * @param act
+	 * @param msg
+	 */
+	public static void showMessage(final Context act, final int msg) {
+		showMessage(act, msg, Toast.LENGTH_SHORT);
+	}
 
-  public static Toast showToast(Context paramContext, int paramInt, boolean paramBoolean)
-  {
-	  return null;
-  }
+	/**
+	 * Toast发送消息，默认Toast.LENGTH_LONG
+	 * 
+	 * @author WikerYong Email:<a href="#">yw_312@foxmail.com</a>
+	 * @version 2012-5-22 上午11:13:35
+	 * @param act
+	 * @param msg
+	 */
+	public static void showMessageLong(final Context act, final int msg) {
+		showMessage(act, msg, Toast.LENGTH_LONG);
+	}
 
-  public static Toast showToast(Context paramContext, CharSequence paramCharSequence, boolean paramBoolean)
-  {
-	  return null;
-  }
+	/**
+	 * Toast发送消息
+	 * 
+	 * @author WikerYong Email:<a href="#">yw_312@foxmail.com</a>
+	 * @version 2012-5-22 上午11:14:09
+	 * @param act
+	 * @param msg
+	 * @param len
+	 */
+	public static void showMessage(final Context act, final int msg, final int len) {
+		new Thread(new Runnable() {
+			public void run() {
+				handler.post(new Runnable() {
 
-  public static Toast showToast(Context paramContext, AppException paramAppException)
-  {
-    return showToast(paramContext, paramAppException, "");
-  }
+					@Override
+					public void run() {
+						synchronized (synObj) {
+							if (toast != null) {
+								toast.cancel();
+								toast.setText(msg);
+								toast.setDuration(len);
+							} else {
+								toast = Toast.makeText(act, msg, len);
+							}
+							toast.show();
+						}
+					}
+				});
+			}
+		}).start();
+	}
 
-  public static Toast showToast(Context paramContext, AppException paramAppException, String paramString)
-  {
-    Toast localToast = null;
-    if (paramContext == null);
-    {
-      if ((paramAppException != null) && (paramAppException.hasStringResourceId()))
-        localToast = showToastShort(paramContext, paramString + paramContext.getResources().getString(paramAppException.getStringResourceId()));
-    }
-    
-    return localToast;
-  }
+	/**
+	 * Toast发送消息
+	 * 
+	 * @author WikerYong Email:<a href="#">yw_312@foxmail.com</a>
+	 * @version 2012-5-22 上午11:14:27
+	 * @param act
+	 * @param msg
+	 * @param len
+	 */
+	public static void showMessage(final Context act, final String msg, final int len) {
+		new Thread(new Runnable() {
+			public void run() {
+				handler.post(new Runnable() {
 
-  public static Toast showToastLong(Context paramContext, int paramInt)
-  {
-    return showToast(paramContext, paramInt, true);
-  }
+					@Override
+					public void run() {
+						synchronized (synObj) {
+							if (toast != null) {
+								toast.cancel();
+								toast.setText(msg);
+								toast.setDuration(len);
+							} else {
+								toast = Toast.makeText(act, msg, len);
+							}
+							toast.show();
+						}
+					}
+				});
+			}
+		}).start();
+	}
 
-  public static Toast showToastLong(Context paramContext, String paramCharSequence)
-  {
-    return showToast(paramContext, paramCharSequence, true);
-  }
-
-  public static Toast showToastShort(Context paramContext, int paramInt)
-  {
-    return showToast(paramContext, paramInt, false);
-  }
-
-  public static Toast showToastShort(Context paramContext, CharSequence paramCharSequence)
-  {
-    return showToast(paramContext, paramCharSequence, false);
-  }
+	/**
+	 * 关闭当前Toast
+	 * 
+	 * @author WikerYong Email:<a href="#">yw_312@foxmail.com</a>
+	 * @version 2012-5-22 上午11:14:45
+	 */
+	public static void cancelCurrentToast() {
+		if (toast != null) {
+			toast.cancel();
+		}
+	}
 }
