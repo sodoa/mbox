@@ -14,26 +14,26 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class MainActivity extends Activity implements OnViewChangeListener, OnClickListener{
-	private MyScrollLayout mScrollLayout;	
-	private LinearLayout[] mImageViews;	
-	private int mViewCount;	
+public class MainActivity extends Activity implements OnViewChangeListener, OnClickListener {
+	private MyScrollLayout mScrollLayout;
+	private LinearLayout[] mImageViews;
+	private int mViewCount;
 	private int mCurSel;
 	private ImageView set;
 	private ImageView add;
-	
+
 	private TextView liaotian;
 	private TextView faxian;
 	private TextView tongxunlu;
-	
+
 	private boolean isOpen = false;
-	
+
 	private ListView listview1;
 	private ListView listview2;
-	
-	//×Ô¶¨ÒåµÄµ¯³ö¿òÀà
-	SelectPicPopupWindow menuWindow; //µ¯³ö¿ò
-	SelectAddPopupWindow menuWindow2; //µ¯³ö¿ò
+
+	SelectPicPopupWindow menuWindow;
+	SelectAddPopupWindow menuWindow2;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -41,112 +41,111 @@ public class MainActivity extends Activity implements OnViewChangeListener, OnCl
 		init();
 	}
 
-	private void init()
-    {
-		liaotian = (TextView)findViewById(R.id.liaotian);
-		faxian = (TextView)findViewById(R.id.faxian);
-		tongxunlu = (TextView)findViewById(R.id.tongxunlu);
-		
-		listview1 = (ListView)findViewById(R.id.listView1);
-		listview2 = (ListView)findViewById(R.id.listView2);
-		
-		HuihuaAdapter ha = new HuihuaAdapter(this,getHuahui());
+	private void init() {
+		liaotian = (TextView) findViewById(R.id.liaotian);
+		faxian = (TextView) findViewById(R.id.faxian);
+		tongxunlu = (TextView) findViewById(R.id.tongxunlu);
+
+		listview1 = (ListView) findViewById(R.id.listView1);
+		listview2 = (ListView) findViewById(R.id.listView2);
+
+		HuihuaAdapter ha = new HuihuaAdapter(this, getHuahui());
 		listview1.setAdapter(ha);
 		listview1.setCacheColorHint(0);
-		
-		ContactAdapter hc = new ContactAdapter(this,getContact());
+
+		ContactAdapter hc = new ContactAdapter(this, getContact());
 		listview2.setAdapter(hc);
 		listview2.setCacheColorHint(0);
-		
-    	mScrollLayout = (MyScrollLayout) findViewById(R.id.ScrollLayout); 	
-    	LinearLayout linearLayout = (LinearLayout) findViewById(R.id.lllayout);   	
-    	mViewCount = mScrollLayout.getChildCount();
-    	mImageViews = new LinearLayout[mViewCount];   	
-    	for(int i = 0; i < mViewCount; i++)    	{
-    		mImageViews[i] = (LinearLayout) linearLayout.getChildAt(i);
-    		mImageViews[i].setEnabled(true);
-    		mImageViews[i].setOnClickListener(this);
-    		mImageViews[i].setTag(i);
-    	}    	
-    	mCurSel = 0;
-    	mImageViews[mCurSel].setEnabled(false);    	
-    	mScrollLayout.SetOnViewChangeListener(this);
-    	
-    	set = (ImageView)findViewById(R.id.set);
-    	add = (ImageView)findViewById(R.id.add);
-    	
-    	set.setOnClickListener(new View.OnClickListener() {
+
+		mScrollLayout = (MyScrollLayout) findViewById(R.id.ScrollLayout);
+		LinearLayout linearLayout = (LinearLayout) findViewById(R.id.lllayout);
+		mViewCount = mScrollLayout.getChildCount();
+		mImageViews = new LinearLayout[mViewCount];
+		for (int i = 0; i < mViewCount; i++) {
+			mImageViews[i] = (LinearLayout) linearLayout.getChildAt(i);
+			mImageViews[i].setEnabled(true);
+			mImageViews[i].setOnClickListener(this);
+			mImageViews[i].setTag(i);
+		}
+		mCurSel = 0;
+		mImageViews[mCurSel].setEnabled(false);
+		mScrollLayout.SetOnViewChangeListener(this);
+
+		set = (ImageView) findViewById(R.id.set);
+		add = (ImageView) findViewById(R.id.add);
+
+		set.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				uploadImage(MainActivity.this);
 			}
 		});
-    	add.setOnClickListener(new View.OnClickListener() {
-    		@Override
-    		public void onClick(View arg0) {
-    			uploadImage2(MainActivity.this);
-    		}
-    	});
-    }
-	
-	private ArrayList<ContactP> getContact(){
+		add.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				uploadImage2(MainActivity.this);
+			}
+		});
+	}
+
+	private ArrayList<ContactP> getContact() {
 		ArrayList<ContactP> hcList = new ArrayList<ContactP>();
 		ContactP c0 = new ContactP();
-		c0.setTxPath(R.drawable.bind_mcontact_reco_friends+"");
-		c0.setName("·þÎñºÅ");
-		
+		c0.setTxPath(R.drawable.bind_mcontact_reco_friends + "");
+		c0.setName("ï¿½ï¿½ï¿½ï¿½ï¿½");
+
 		ContactP c1 = new ContactP();
-		c1.setTxPath(R.drawable.brand_default_head+"");
-		c1.setName("Î¢ÐÅ²âÊÔÕËºÅ");
-		
+		c1.setTxPath(R.drawable.brand_default_head + "");
+		c1.setName("Î¢ï¿½Å²ï¿½ï¿½ï¿½ï¿½Ëºï¿½");
+
 		ContactP c2 = new ContactP();
-		c2.setTxPath(R.drawable.bind_qq_icon+"");
-		c2.setName("QQÍÅ¶Ó");
-		
+		c2.setTxPath(R.drawable.bind_qq_icon + "");
+		c2.setName("QQï¿½Å¶ï¿½");
+
 		ContactP c3 = new ContactP();
-		c3.setTxPath(R.drawable.icon+"");
-		c3.setName("Î¢ÐÅÍÅ¶Ó");
-		
+		c3.setTxPath(R.drawable.icon + "");
+		c3.setName("Î¢ï¿½ï¿½ï¿½Å¶ï¿½");
+
 		ContactP c4 = new ContactP();
-		c4.setTxPath(R.drawable.xiaohei+"");
-		c4.setName("Ð¡ºÚ");
-		
+		c4.setTxPath(R.drawable.xiaohei + "");
+		c4.setName("Ð¡ï¿½ï¿½");
+
 		ContactP c5 = new ContactP();
-		c5.setTxPath(R.drawable.voip_camerachat+"");
-		c5.setName("²»ÔÙÇÝÊÞ");
-		
+		c5.setTxPath(R.drawable.voip_camerachat + "");
+		c5.setName("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+
 		ContactP c6 = new ContactP();
-		c6.setTxPath(R.drawable.searadd_icon+"");
-		c6.setName("Éµ±Æ²»¿Þ");
-		
+		c6.setTxPath(R.drawable.searadd_icon + "");
+		c6.setName("Éµï¿½Æ²ï¿½ï¿½ï¿½");
+
 		ContactP c7 = new ContactP();
-		c7.setTxPath(R.drawable.personactivity_cover_heart+"");
-		c7.setName("Ð¤Ðã");
-		
+		c7.setTxPath(R.drawable.personactivity_cover_heart + "");
+		c7.setName("Ð¤ï¿½ï¿½");
+
 		ContactP c8 = new ContactP();
-		c8.setTxPath(R.drawable.headshow2+"");
-		c8.setName("·çÇåÔÆÄÏ");
-		
+		c8.setTxPath(R.drawable.headshow2 + "");
+		c8.setName("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+
 		ContactP c9 = new ContactP();
-		c9.setTxPath(R.drawable.headshow3+"");
+		c9.setTxPath(R.drawable.headshow3 + "");
 		c9.setName("EatEvery");
-		
+
 		ContactP c10 = new ContactP();
-		c10.setTxPath(R.drawable.headshow4+"");
-		c10.setName("±ÉÈË");
-		
+		c10.setTxPath(R.drawable.headshow4 + "");
+		c10.setName("ï¿½ï¿½ï¿½ï¿½");
+
 		ContactP c11 = new ContactP();
-		c11.setTxPath(R.drawable.headshow5+"");
-		c11.setName("ÈËÈËÈË");
-		
+		c11.setTxPath(R.drawable.headshow5 + "");
+		c11.setName("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+
 		ContactP c12 = new ContactP();
-		c12.setTxPath(R.drawable.headshow6+"");
+		c12.setTxPath(R.drawable.headshow6 + "");
 		c12.setName("Diacker");
-		
+
 		ContactP c13 = new ContactP();
-		c13.setTxPath(R.drawable.headshow1+"");
-		c13.setName("Íõ°Ô");
-		
+		c13.setTxPath(R.drawable.headshow1 + "");
+		c13.setName("ï¿½ï¿½ï¿½");
+
 		hcList.add(c0);
 		hcList.add(c1);
 		hcList.add(c2);
@@ -161,71 +160,72 @@ public class MainActivity extends Activity implements OnViewChangeListener, OnCl
 		hcList.add(c11);
 		hcList.add(c12);
 		hcList.add(c13);
-		
+
 		return hcList;
 	}
-	private ArrayList<HuiHua> getHuahui(){
+
+	private ArrayList<HuiHua> getHuahui() {
 		ArrayList<HuiHua> hhList = new ArrayList<HuiHua>();
 		HuiHua h1 = new HuiHua();
-		h1.setTxPath(R.drawable.icon+"");
-		h1.setName1("Ð¤Ðã");
-		h1.setLastContent("ÕâÊÇÎ¨Ò»Ò»¸öÕý³£µÄÅóÓÑ");
-		h1.setLastTime("ÏÂÎç 18:00");
-		
+		h1.setTxPath(R.drawable.icon + "");
+		h1.setName1("Ð¤ï¿½ï¿½");
+		h1.setLastContent("ï¿½ï¿½ï¿½ï¿½Î¨Ò»Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		h1.setLastTime("ï¿½ï¿½ï¿½ï¿½ 18:00");
+
 		HuiHua h2 = new HuiHua();
-		h2.setTxPath(R.drawable.xiaohei+"");
-		h2.setName1("Ð¡ºÚ");
-		h2.setLastContent("ÎÒ´æÔÚÓÀºãµÄºÚ°µÖÐ£¬ÎÒÏ²»¶ÍÌÊÉ¹âÃ÷µÄÁé»ê");
-		h2.setLastTime("ÏÂÎç 17:40");
-		
+		h2.setTxPath(R.drawable.xiaohei + "");
+		h2.setName1("Ð¡ï¿½ï¿½");
+		h2.setLastContent("ï¿½Ò´ï¿½ï¿½ï¿½ï¿½:ï¿½ÄºÚ°ï¿½ï¿½Ð£ï¿½ï¿½ï¿½Ï²ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		h2.setLastTime("ï¿½ï¿½ï¿½ï¿½ 17:40");
+
 		HuiHua h3 = new HuiHua();
-		h3.setTxPath(R.drawable.searadd_icon+"");
-		h3.setName1("Éµ±Æ²»¿Þ");
-		h3.setLastContent("Éµ±Æ²»¿Þ£¬Õ¾ÆðÀ´ÓÂ¸ÒµØß£");
-		h3.setLastTime("ÏÂÎç 17:00");
-		
+		h3.setTxPath(R.drawable.searadd_icon + "");
+		h3.setName1("Éµï¿½Æ²ï¿½ï¿½ï¿½");
+		h3.setLastContent("Éµï¿½Æ²ï¿½ï¿½Þ£ï¿½Õ¾ï¿½ï¿½4ï¿½Â¸Òµï¿½ß£");
+		h3.setLastTime("ï¿½ï¿½ï¿½ï¿½ 17:00");
+
 		HuiHua h4 = new HuiHua();
-		h4.setTxPath(R.drawable.voip_camerachat+"");
-		h4.setName1("²»ÔÙµ±ÇÝÊÞ");
-		h4.setLastContent("´Ó´Ë²»ÔÙµ±ÇÝÊÞ£¬ÎÒÒªµ±ÊÞÍõ");
-		h4.setLastTime("ÏÂÎç 16:22");
-		
+		h4.setTxPath(R.drawable.voip_camerachat + "");
+		h4.setName1("ï¿½ï¿½ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½");
+		h4.setLastContent("ï¿½Ó´Ë²ï¿½ï¿½Ùµï¿½ï¿½ï¿½ï¿½Þ£ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		h4.setLastTime("ï¿½ï¿½ï¿½ï¿½ 16:22");
+
 		HuiHua h5 = new HuiHua();
-		h5.setTxPath(R.drawable.headshow2+"");
-		h5.setName1("·çÇåÔÆÄÏ");
-		h5.setLastContent("·ç´µµÃºÜÇåÐÂ£¬ÔÆÆ®µ´ÔÚÄÏ±ßµÄÌì¿Õ");
-		h5.setLastTime("ÏÂÎç 16:11");
-		
+		h5.setTxPath(R.drawable.headshow2 + "");
+		h5.setName1("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		h5.setLastContent("ï¿½ç´µï¿½Ãºï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ßµï¿½ï¿½ï¿½ï¿½");
+		h5.setLastTime("ï¿½ï¿½ï¿½ï¿½ 16:11");
+
 		HuiHua h6 = new HuiHua();
-		h6.setTxPath(R.drawable.headshow3+"");
+		h6.setTxPath(R.drawable.headshow3 + "");
 		h6.setName1("EatEvery");
 		h6.setLastContent("Don't look me, I will eat you, Are you know");
-		h6.setLastTime("ÏÂÎç 15:08");
-		
+		h6.setLastTime("ï¿½ï¿½ï¿½ï¿½ 15:08");
+
 		HuiHua h7 = new HuiHua();
-		h7.setTxPath(R.drawable.headshow4+"");
-		h7.setName1("±ÉÈË");
-		h7.setLastContent("Ã»ÓÐÄÇÃ´´óµÄŒÅ£¬¾Í²»Òª×°B");
-		h7.setLastTime("ÏÂÎç 15:01");
-		
+		h7.setTxPath(R.drawable.headshow4 + "");
+		h7.setName1("ï¿½ï¿½ï¿½ï¿½");
+		h7.setLastContent("Ã»ï¿½ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ÄŒÅ£ï¿½ï¿½Í²ï¿½Òª×°B");
+		h7.setLastTime("ï¿½ï¿½ï¿½ï¿½ 15:01");
+
 		HuiHua h8 = new HuiHua();
-		h8.setTxPath(R.drawable.headshow5+"");
-		h8.setName1("ÈËÈËÈË");
-		h8.setLastContent("ÎÒ¾ÍÊÇÕâÃ´Ò»¸öÈË£¬¾ÍÊÇÏ²»¶Ò»¸öÈË£¬²»¹ÜÊÇ²»ÊÇÒ»¸öÈË");
-		h8.setLastTime("ÏÂÎç 14:50");
-		
+		h8.setTxPath(R.drawable.headshow5 + "");
+		h8.setName1("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		h8.setLastContent("ï¿½Ò¾ï¿½ï¿½ï¿½ï¿½ï¿½Ã´Ò»ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½Ï²ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½");
+		h8.setLastTime("ï¿½ï¿½ï¿½ï¿½ 14:50");
+
 		HuiHua h9 = new HuiHua();
-		h9.setTxPath(R.drawable.headshow6+"");
+		h9.setTxPath(R.drawable.headshow6 + "");
 		h9.setName1("Diacker");
 		h9.setLastContent("this is very good fill");
-		h9.setLastTime("ÏÂÎç 14:00");
-		
+		h9.setLastTime("ï¿½ï¿½ï¿½ï¿½ 14:00");
+
 		HuiHua h0 = new HuiHua();
-		h0.setTxPath(R.drawable.headshow1+"");
-		h0.setName1("¾ÆÏã¸æ¼±");
-		h0.setLastContent("ÎÒÊÇ¸öÏ²»¶¾ÍµÃÈË£¬µ«ÊÇÄãÃÇÒ»¶¨ÒªÀí½âÇå³þÎÒµÄÃû×Ö£¬ÔÙ¸úÎÒËµ»°");
-		h0.setLastTime("ÖÐÎç 12:00");
-		
+		h0.setTxPath(R.drawable.headshow1 + "");
+		h0.setName1("ï¿½ï¿½ï¿½ï¿½æ¼±");
+		h0.setLastContent("ï¿½ï¿½ï¿½Ç¸ï¿½Ï²ï¿½ï¿½ï¿½Íµï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½Ëµï¿½ï¿½");
+		h0.setLastTime("ï¿½ï¿½ï¿½ï¿½ 12:00");
+
 		hhList.add(h1);
 		hhList.add(h2);
 		hhList.add(h3);
@@ -237,60 +237,56 @@ public class MainActivity extends Activity implements OnViewChangeListener, OnCl
 		hhList.add(h9);
 		hhList.add(h0);
 		return hhList;
-	} 
-	
-	 public void uploadImage(final Activity context){
-		 menuWindow = new SelectPicPopupWindow(MainActivity.this, itemsOnClick);
-			//ÏÔÊ¾´°¿Ú
-		menuWindow.showAtLocation(MainActivity.this.findViewById(R.id.set), Gravity.TOP|Gravity.RIGHT, 10, 230); //ÉèÖÃlayoutÔÚPopupWindowÖÐÏÔÊ¾µÄÎ»ÖÃ
-	 }
-	 public void uploadImage2(final Activity context){
-		 menuWindow2 = new SelectAddPopupWindow(MainActivity.this, itemsOnClick2);
-		 //ÏÔÊ¾´°¿Ú
-		 menuWindow2.showAtLocation(MainActivity.this.findViewById(R.id.add), Gravity.TOP|Gravity.RIGHT, 10, 230); //ÉèÖÃlayoutÔÚPopupWindowÖÐÏÔÊ¾µÄÎ»ÖÃ
-	 }
-	 
-	 //Îªµ¯³ö´°¿ÚÊµÏÖ¼àÌýÀà
-	    private OnClickListener  itemsOnClick = new OnClickListener(){
+	}
 
-			public void onClick(View v) {
-				menuWindow.dismiss();
-			}
-	    };
-	    
-	    //Îªµ¯³ö´°¿ÚÊµÏÖ¼àÌýÀà
-	    private OnClickListener  itemsOnClick2 = new OnClickListener(){
-	    	
-	    	public void onClick(View v) {
-	    		menuWindow2.dismiss();
-	    	}
-	    };
-	    
-	private void setCurPoint(int index)
-    {
-    	if (index < 0 || index > mViewCount - 1 || mCurSel == index){
-    		return ;
-    	}    	
-    	mImageViews[mCurSel].setEnabled(true);
-    	mImageViews[index].setEnabled(false);    	
-    	mCurSel = index;
-    	
-    	if(index == 0){
-    		liaotian.setTextColor(0xff228B22);
-    		faxian.setTextColor(Color.BLACK);
-    		tongxunlu.setTextColor(Color.BLACK);
-    	}else if(index==1){
-    		liaotian.setTextColor(Color.BLACK);
-    		faxian.setTextColor(0xff228B22);
-    		tongxunlu.setTextColor(Color.BLACK);
-    	}else{
-    		liaotian.setTextColor(Color.BLACK);
-    		faxian.setTextColor(Color.BLACK);
-    		tongxunlu.setTextColor(0xff228B22);
-    	}
-    }
+	public void uploadImage(final Activity context) {
+		menuWindow = new SelectPicPopupWindow(MainActivity.this, itemsOnClick);
+		menuWindow.showAtLocation(MainActivity.this.findViewById(R.id.set), Gravity.TOP | Gravity.RIGHT, 10, 230);
+	}
 
-    @Override
+	public void uploadImage2(final Activity context) {
+		menuWindow2 = new SelectAddPopupWindow(MainActivity.this, itemsOnClick2);
+		menuWindow2.showAtLocation(MainActivity.this.findViewById(R.id.add), Gravity.TOP | Gravity.RIGHT, 10, 230);
+	}
+
+	private OnClickListener itemsOnClick = new OnClickListener() {
+
+		public void onClick(View v) {
+			menuWindow.dismiss();
+		}
+	};
+
+	private OnClickListener itemsOnClick2 = new OnClickListener() {
+
+		public void onClick(View v) {
+			menuWindow2.dismiss();
+		}
+	};
+
+	private void setCurPoint(int index) {
+		if (index < 0 || index > mViewCount - 1 || mCurSel == index) {
+			return;
+		}
+		mImageViews[mCurSel].setEnabled(true);
+		mImageViews[index].setEnabled(false);
+		mCurSel = index;
+
+		if (index == 0) {
+			liaotian.setTextColor(0xff228B22);
+			faxian.setTextColor(Color.BLACK);
+			tongxunlu.setTextColor(Color.BLACK);
+		} else if (index == 1) {
+			liaotian.setTextColor(Color.BLACK);
+			faxian.setTextColor(0xff228B22);
+			tongxunlu.setTextColor(Color.BLACK);
+		} else {
+			liaotian.setTextColor(Color.BLACK);
+			faxian.setTextColor(Color.BLACK);
+			tongxunlu.setTextColor(0xff228B22);
+		}
+	}
+
+	@Override
 	public void OnViewChange(int view) {
 		// TODO Auto-generated method stub
 		setCurPoint(view);
@@ -299,16 +295,16 @@ public class MainActivity extends Activity implements OnViewChangeListener, OnCl
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		int pos = (Integer)(v.getTag());
+		int pos = (Integer) (v.getTag());
 		setCurPoint(pos);
 		mScrollLayout.snapToScreen(pos);
 	}
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		 if ((keyCode == KeyEvent.KEYCODE_MENU)) {       
-	            return true;
-	        }
+		if ((keyCode == KeyEvent.KEYCODE_MENU)) {
+			return true;
+		}
 		return super.onKeyDown(keyCode, event);
 	}
 

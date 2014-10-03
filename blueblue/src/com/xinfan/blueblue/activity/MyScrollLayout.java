@@ -14,7 +14,7 @@ public class MyScrollLayout extends ViewGroup{
     private static final String TAG = "ScrollLayout";      
     private VelocityTracker mVelocityTracker;  			// 用于判断甩动手势    
     private static final int SNAP_VELOCITY = 400;        
-    private Scroller  mScroller;						// 滑动控制�??	
+    private Scroller  mScroller;						
     private int mCurScreen;    						    
 	private int mDefaultScreen = 0;    						 
     private float mLastMotionX;       
@@ -28,20 +28,18 @@ public class MyScrollLayout extends ViewGroup{
 //    private int mTouchState = TOUCH_STATE_REST;
     
     private OnViewChangeListener mOnViewChangeListener;	 
+    
 	public MyScrollLayout(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 		init(context);
 	}	
 	public MyScrollLayout(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 		init(context);
 	}
 	
 	public MyScrollLayout(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		// TODO Auto-generated constructor stub		
 		init(context);
 	}
 	
@@ -55,7 +53,6 @@ public class MyScrollLayout extends ViewGroup{
 
 	@Override
 	protected void onLayout(boolean changed, int l, int t, int r, int b) {
-		// TODO Auto-generated method stub		
 		 if (changed) {    
 	            int childLeft = 0;    
 	            final int childCount = getChildCount();    	                

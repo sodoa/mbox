@@ -1,71 +1,66 @@
 package com.xinfan.blueblue.activity;
 
-import android.net.Uri;
-import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.view.Menu;
+import android.net.Uri;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class Login extends Activity {
-	private EditText mUser; // ÕÊºÅ±à¼­¿ò
-	private EditText mPassword; // ÃÜÂë±à¼­¿ò
+	private EditText mUser; 
+	private EditText mPassword; 
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
-        
-        mUser = (EditText)findViewById(R.id.login_user_edit);
-        mPassword = (EditText)findViewById(R.id.login_passwd_edit);
-        
-    }
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.login);
 
-    public void login_mainweixin(View v) {
-    	if("admin".equals(mUser.getText().toString()) && "1".equals(mPassword.getText().toString()))   //ÅÐ¶Ï ÕÊºÅºÍÃÜÂë
-        {
-             Intent intent = new Intent();
-             intent.setClass(Login.this,LoadingActivity.class);
-             startActivity(intent);
-             //Toast.makeText(getApplicationContext(), "µÇÂ¼³É¹¦", Toast.LENGTH_SHORT).show();
-          }
-        else if("".equals(mUser.getText().toString()) || "".equals(mPassword.getText().toString()))   //ÅÐ¶Ï ÕÊºÅºÍÃÜÂë
-        {
-        	new AlertDialog.Builder(Login.this)
-			.setIcon(getResources().getDrawable(R.drawable.login_error_icon))
-			.setTitle("µÇÂ¼´íÎó")
-			.setMessage("Î¢ÐÅÕÊºÅ»òÕßÃÜÂë²»ÄÜÎª¿Õ£¬\nÇëÊäÈëºóÔÙµÇÂ¼£¡")
-			.create().show();
-         }
-        else{
-           
-        	new AlertDialog.Builder(Login.this)
-			.setIcon(getResources().getDrawable(R.drawable.login_error_icon))
-			.setTitle("µÇÂ¼Ê§°Ü")
-			.setMessage("Î¢ÐÅÕÊºÅ»òÕßÃÜÂë²»ÕýÈ·£¬\nÇë¼ì²éºóÖØÐÂÊäÈë£¡")
-			.create().show();
-        }
-    	
-    	//µÇÂ¼°´Å¥
-    	/*
-      	Intent intent = new Intent();
-		intent.setClass(Login.this,Whatsnew.class);
+		mUser = (EditText) findViewById(R.id.login_user_edit);
+		mPassword = (EditText) findViewById(R.id.login_passwd_edit);
+
+	}
+
+	public void login_mainweixin(View v) {
+		if ("admin".equals(mUser.getText().toString()) && "1".equals(mPassword.getText().toString())) // ï¿½Ð¶ï¿½
+																										// ï¿½ÊºÅºï¿½ï¿½ï¿½ï¿½ï¿½
+		{
+			Intent intent = new Intent();
+			intent.setClass(Login.this, LoadingActivity.class);
+			startActivity(intent);
+			// Toast.makeText(getApplicationContext(), "ï¿½ï¿½Â¼ï¿½É¹ï¿½",
+			// Toast.LENGTH_SHORT).show();
+		} else if ("".equals(mUser.getText().toString()) || "".equals(mPassword.getText().toString())) // ï¿½Ð¶ï¿½
+																										// ï¿½ÊºÅºï¿½ï¿½ï¿½ï¿½ï¿½
+		{
+			new AlertDialog.Builder(Login.this).setIcon(getResources().getDrawable(R.drawable.login_error_icon)).setTitle("ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½")
+					.setMessage("Î¢ï¿½ï¿½ï¿½ÊºÅ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Îªï¿½Õ£ï¿½\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ùµï¿½Â¼ï¿½ï¿½").create().show();
+		} else {
+
+			new AlertDialog.Builder(Login.this).setIcon(getResources().getDrawable(R.drawable.login_error_icon)).setTitle("ï¿½ï¿½Â¼Ê§ï¿½ï¿½")
+					.setMessage("Î¢ï¿½ï¿½ï¿½ÊºÅ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë²»ï¿½ï¿½È·ï¿½ï¿½\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£¡").create().show();
+		}
+
+		// ï¿½ï¿½Â¼ï¿½ï¿½Å¥
+		/*
+		 * Intent intent = new Intent();
+		 * intent.setClass(Login.this,Whatsnew.class); startActivity(intent);
+		 * Toast.makeText(getApplicationContext(), "ï¿½ï¿½Â¼ï¿½É¹ï¿½",
+		 * Toast.LENGTH_SHORT).show(); this.finish();
+		 */
+	}
+
+	public void login_back(View v) { // ï¿½ï¿½ï¿½ï¿½8 ï¿½ï¿½ï¿½Ø°ï¿½Å¥
+		this.finish();
+	}
+
+	public void login_pw(View v) { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë°´Å¥
+		Uri uri = Uri.parse("http://3g.qq.com");
+		Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 		startActivity(intent);
-		Toast.makeText(getApplicationContext(), "µÇÂ¼³É¹¦", Toast.LENGTH_SHORT).show();
-		this.finish();*/
-      }  
-    public void login_back(View v) {     //±êÌâÀ¸ ·µ»Ø°´Å¥
-      	this.finish();
-      }  
-    public void login_pw(View v) {     //Íü¼ÇÃÜÂë°´Å¥
-    	Uri uri = Uri.parse("http://3g.qq.com"); 
-    	Intent intent = new Intent(Intent.ACTION_VIEW, uri); 
-    	startActivity(intent);
-    	//Intent intent = new Intent();
-    	//intent.setClass(Login.this,Whatsnew.class);
-        //startActivity(intent);
-      }  
+		// Intent intent = new Intent();
+		// intent.setClass(Login.this,Whatsnew.class);
+		// startActivity(intent);
+	}
 }

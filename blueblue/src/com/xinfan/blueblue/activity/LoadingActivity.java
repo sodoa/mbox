@@ -2,12 +2,10 @@ package com.xinfan.blueblue.activity;
 
 
 
-import android.os.Bundle;
-import android.os.Handler;
 import android.app.Activity;
 import android.content.Intent;
-import android.view.Menu;
-import android.view.WindowManager;
+import android.os.Bundle;
+import android.os.Handler;
 import android.widget.Toast;
 
 public class LoadingActivity extends Activity{
@@ -24,8 +22,8 @@ public class LoadingActivity extends Activity{
 			Intent intent = new Intent (LoadingActivity.this,Whatsnew.class);			
 			startActivity(intent);			
 			LoadingActivity.this.finish();
-			Toast.makeText(getApplicationContext(), "µ«¬º≥…π¶", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "ÁôªÂΩïÊàêÂäü", Toast.LENGTH_SHORT).show();
 		}
-	}, 200);
+	}, 2000);
    }
 }
