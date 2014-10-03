@@ -1,7 +1,5 @@
 package com.xinfan.blueblue.activity;
 
-import com.xinfan.blueblue.request.AnsynHttpRequest;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -25,39 +23,31 @@ public class Login extends Activity {
 	}
 
 	public void login_mainweixin(View v) {
-		if ("admin".equals(mUser.getText().toString()) && "1".equals(mPassword.getText().toString())) // �ж�
-																										// �ʺź�����
+		
+		if ("1".equals(mUser.getText().toString()) && "1".equals(mPassword.getText().toString())) 
+																										
 		{
 			Intent intent = new Intent();
 			intent.setClass(Login.this, LoadingActivity.class);
 			startActivity(intent);
-			// Toast.makeText(getApplicationContext(), "��¼�ɹ�",
-			// Toast.LENGTH_SHORT).show();
-		} else if ("".equals(mUser.getText().toString()) || "".equals(mPassword.getText().toString())) // �ж�
-																										// �ʺź�����
+			
+		} else if ("".equals(mUser.getText().toString()) || "".equals(mPassword.getText().toString())) 
+																										
 		{
-			new AlertDialog.Builder(Login.this).setIcon(getResources().getDrawable(R.drawable.login_error_icon)).setTitle("��¼����")
-					.setMessage("΢���ʺŻ������벻��Ϊ�գ�\n��������ٵ�¼��").create().show();
+			new AlertDialog.Builder(Login.this).setIcon(getResources().getDrawable(R.drawable.login_error_icon)).setTitle("登录失败")
+					.setMessage("密码错误").create().show();
 		} else {
 
-			new AlertDialog.Builder(Login.this).setIcon(getResources().getDrawable(R.drawable.login_error_icon)).setTitle("��¼ʧ��")
-					.setMessage("΢���ʺŻ������벻��ȷ��\n������������룡").create().show();
+			new AlertDialog.Builder(Login.this).setIcon(getResources().getDrawable(R.drawable.login_error_icon)).setTitle("登录失败")
+					.setMessage("登录失败").create().show();
 		}
-
-		// ��¼��ť
-		/*
-		 * Intent intent = new Intent();
-		 * intent.setClass(Login.this,Whatsnew.class); startActivity(intent);
-		 * Toast.makeText(getApplicationContext(), "��¼�ɹ�",
-		 * Toast.LENGTH_SHORT).show(); this.finish();
-		 */
 	}
 
-	public void login_back(View v) { // ����8 ���ذ�ť
+	public void login_back(View v) {
 		this.finish();
 	}
 
-	public void login_pw(View v) { // ������밴ť
+	public void login_pw(View v) {
 		Uri uri = Uri.parse("http://3g.qq.com");
 		Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 		startActivity(intent);

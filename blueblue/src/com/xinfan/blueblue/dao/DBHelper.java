@@ -300,4 +300,14 @@ public class DBHelper extends SQLiteOpenHelper {
 		this.db = db;
 	}
 
+	public void open() {
+		db = getReadableDatabase();
+	}
+
+	public void close() {
+		if (db != null) {
+			db.close();
+		}
+	}
+
 }
