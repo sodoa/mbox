@@ -61,6 +61,9 @@
         <activity
             android:name=".Login"
             android:theme="@android:style/Theme.NoTitleBar" />
+          <activity
+            android:name=".Register"
+            android:theme="@android:style/Theme.NoTitleBar" />
         <activity
             android:name=".Welcome"
             android:theme="@style/Anim_style2" />
