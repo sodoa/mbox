@@ -22,7 +22,7 @@ public class ContactListView extends ListView implements OnScrollListener, OnIte
 
 	ArrayList list = new ArrayList();
 
-	SendHistoryAdapter ad;
+	Contact2Adapter ad;
 	
 	Context context;
 
@@ -93,7 +93,7 @@ public class ContactListView extends ListView implements OnScrollListener, OnIte
 
 	public void loadData(){
 		//list = (ArrayList) MessageListDataService.getData(pageSize, 1);
-		ad = new SendHistoryAdapter(this.context, list);
+		ad = new Contact2Adapter(this.context, list);
 		
 		addFooterView(footer);
 		setAdapter(ad);
@@ -158,7 +158,7 @@ public class ContactListView extends ListView implements OnScrollListener, OnIte
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		Intent intent = new Intent();
-		intent.setClass(MainActivity.instance, ViewMessageActivity.class);
+		intent.setClass(MainActivity.instance, ContactInfoActivity.class);
 		this.getContext().startActivity(intent);
 	}
 

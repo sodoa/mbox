@@ -42,7 +42,7 @@ public class ContactAdapter extends BaseAdapter {
 		H h = null;
 		if(view==null){
 			h = new H();
-			view = LayoutInflater.from(context).inflate(R.layout.tongxunlu, parent, false);
+			view = LayoutInflater.from(context).inflate(R.layout.contact_list_item, parent, false);
 			h.pic = (ImageView)view.findViewById(R.id.tx1);
 			h.name = (TextView)view.findViewById(R.id.tx2);
 			

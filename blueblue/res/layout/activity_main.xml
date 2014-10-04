@@ -67,8 +67,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:cacheColorHint="@android:color/transparent"
-                android:divider="@drawable/reader_item_divider"
-                android:listSelector="@android:color/transparent" >
+                android:divider="@drawable/reader_item_divider" >
             </com.xinfan.blueblue.activity.ContactListView>
         </FrameLayout>
     </com.xinfan.blueblue.activity.MyScrollLayout>

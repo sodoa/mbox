@@ -2,6 +2,8 @@ package com.xinfan.blueblue.activity;
 
 import java.util.ArrayList;
 
+import com.xinfan.blueblue.activity.ContactAdapter.H;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,17 +38,16 @@ public class Contact2Adapter extends BaseAdapter {
 		return position;
 	}
 
+
 	@Override
 	public View getView(int position, View view, ViewGroup parent) {
 		HuiHua hh = list.get(position);
 		H h = null;
 		if(view==null){
 			h = new H();
-			view = LayoutInflater.from(context).inflate(R.layout.send_history, parent, false);
-			//h.pic = (ImageView)view.findViewById(R.id.l1);
-			h.name = (TextView)view.findViewById(R.id.name);
-			h.time = (TextView)view.findViewById(R.id.time);
-			h.lastmsg = (TextView)view.findViewById(R.id.lastmsg);
+			view = LayoutInflater.from(context).inflate(R.layout.contact_list_item, parent, false);
+			h.pic = (ImageView)view.findViewById(R.id.tx1);
+			h.name = (TextView)view.findViewById(R.id.tx2);
 			
 			view.setTag(h);
 		}else{
@@ -55,8 +56,6 @@ public class Contact2Adapter extends BaseAdapter {
 		
 		//h.pic.setImageResource(Integer.parseInt(hh.getTxPath()));
 		h.name.setText(hh.getName1());
-		h.time.setText(hh.getLastTime());
-		h.lastmsg.setText(hh.getLastContent());
 		
 		return view;
 	}
@@ -64,7 +63,5 @@ public class Contact2Adapter extends BaseAdapter {
 	class H{
 		ImageView pic;
 		TextView name;
-		TextView time;
-		TextView lastmsg;
 	}
 }

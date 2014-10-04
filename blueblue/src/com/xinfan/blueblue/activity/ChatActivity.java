@@ -16,7 +16,7 @@ import android.widget.ListView;
 
 
 public class ChatActivity extends Activity implements OnClickListener{
-    /** Called when the activity is first created. */
+    /** Called when the activity is first created. */ 
 
 	private Button mBtnSend;
 	private Button mBtnBack;
