@@ -41,7 +41,7 @@ public class Complian extends Activity {
 	}
 	  public void ComplianBack(View v) {     //返回
 	      	this.finish();
-	      }  
+	 }  
 	    
 
 }

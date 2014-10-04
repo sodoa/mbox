@@ -87,6 +87,7 @@ public class SelectPicPopupWindow extends PopupWindow {
 				Intent intent = new Intent();
 	        	intent.setClass(v.getContext(),Complian.class);
 	        	v.getContext().startActivity(intent);
+	        	dismiss();
 				//context.finish();
 			}
 		});
