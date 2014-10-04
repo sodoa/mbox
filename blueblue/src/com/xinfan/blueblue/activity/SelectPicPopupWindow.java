@@ -16,7 +16,7 @@ import android.widget.PopupWindow;
 
 public class SelectPicPopupWindow extends PopupWindow {
 
-
+	private Button  btn_complain;
 	private Button  btn_cancel;
 	private Button btn_account;
 	private View mMenuView;
@@ -30,6 +30,8 @@ public class SelectPicPopupWindow extends PopupWindow {
 		int h = context.getWindowManager().getDefaultDisplay().getHeight();
 		int w = context.getWindowManager().getDefaultDisplay().getWidth();
 		btn_cancel = (Button) mMenuView.findViewById(R.id.btn_cancel);
+		btn_complain= (Button) mMenuView.findViewById(R.id.btn_complain);
+		//监听退出按钮
 		btn_account = (Button)mMenuView.findViewById(R.id.btn_account);
 		
 		btn_account.setOnClickListener(new OnClickListener() {
@@ -62,6 +64,39 @@ public class SelectPicPopupWindow extends PopupWindow {
 		this.setAnimationStyle(R.style.mystyle);
 		ColorDrawable dw = new ColorDrawable(0000000000);
 		this.setBackgroundDrawable(dw);
+		mMenuView.setOnTouchListener(new OnTouchListener() {
+			
+			public boolean onTouch(View v, MotionEvent event) {
+				
+				int height = mMenuView.findViewById(R.id.pop_layout).getTop();
+				int y=(int) event.getY();
+				if(event.getAction()==MotionEvent.ACTION_UP){
+					if(y<height){
+						dismiss();
+					}
+				}				
+				return true;
+			}
+		});
+		//监听意见反馈按钮
+		btn_complain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				//SaveDate.saveDate(context, new OAuthV2()); 
+				
+				Intent intent = new Intent();
+	        	intent.setClass(v.getContext(),Complian.class);
+	        	v.getContext().startActivity(intent);
+				//context.finish();
+			}
+		});
+		this.setContentView(mMenuView);
+		this.setWidth(w/2+50);
+		this.setHeight(LayoutParams.WRAP_CONTENT);
+		this.setFocusable(true);
+		this.setAnimationStyle(R.style.mystyle);
+		ColorDrawable cdw = new ColorDrawable(0000000000);
+		this.setBackgroundDrawable(cdw);
 		mMenuView.setOnTouchListener(new OnTouchListener() {
 			
 			public boolean onTouch(View v, MotionEvent event) {

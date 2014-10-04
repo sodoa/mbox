@@ -26,7 +26,7 @@ public class SetScroll extends ScrollView {
 
 		@Override
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
-			System.out.println("--------正在滚动-------");
+			System.out.println("--------姝ｅ湪婊氬姩-------");
 			
 			float x = ev.getX();
 			float y = ev.getY();
@@ -68,7 +68,7 @@ public class SetScroll extends ScrollView {
 //			// return true;
 //			// }
 //			// return false;
-//			System.out.println("--------正在滚动-------");
+//			System.out.println("--------姝ｅ湪婊氬姩-------");
 //			double angle = Math.atan2(Math.abs(distanceY), Math.abs(distanceX));
 ////			System.out.println( angle--   + (180 * angle) / Math.PI);
 //			if ((180 * angle) / Math.PI < 180) {
