@@ -97,22 +97,22 @@
             android:theme="@style/Anim_style2" />
         <activity
             android:name="ThemeSetActivity"
-            android:theme="@style/Anim_style2" /> 
-         <activity
+            android:theme="@style/Anim_style2" />
+        <activity
             android:name="ViewMessageActivity"
-            android:theme="@style/Anim_style2" />         
-            
-                  <activity
+            android:theme="@style/Anim_style2" />
+        <activity
             android:name="UserInfoActivity"
-            android:theme="@style/Anim_style2" />  
-            
-                  <activity
+            android:theme="@style/Anim_style2" />
+        <activity
             android:name="ContactInfoActivity"
-            android:theme="@style/Anim_style2" />                    
-                 <activity
+            android:theme="@style/Anim_style2" />
+        <activity
             android:name=".Complian"
-            android:theme="@style/Anim_style2" >
-        </activity>
+            android:theme="@style/Anim_style2" />
+        <activity
+            android:name=".UpdateVersionActivity"
+            android:theme="@style/Anim_style2" />
         <activity
             android:name="com.xinfan.blueblue.activity.MainActivity"
             android:screenOrientation="portrait" />
