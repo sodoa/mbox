@@ -1,14 +1,11 @@
 package com.xinfan.blueblue.activity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -18,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnViewChangeListener, OnClickListener {
 
@@ -39,7 +35,8 @@ public class MainActivity extends Activity implements OnViewChangeListener, OnCl
 	private boolean isOpen = false;
 
 	private MessageListView listview1;
-	private ListView listview2;
+	private SendedMessageListView listview2;
+	private ContactListView listview3;
 
 	SelectPicPopupWindow menuWindow;
 	SelectAddPopupWindow menuWindow2;
@@ -58,29 +55,29 @@ public class MainActivity extends Activity implements OnViewChangeListener, OnCl
 		tongxunlu = (TextView) findViewById(R.id.tongxunlu);
 
 		listview1 = (MessageListView) findViewById(R.id.listView1);
-		listview2 = (ListView) findViewById(R.id.listView2);
+		listview2 = (SendedMessageListView) findViewById(R.id.listView2);
+		listview3 = (ContactListView) findViewById(R.id.listView3);
+		
 
 		View footer = LayoutInflater.from(this).inflate(R.layout.footer, null);
 
 		listview1.setContext(this);
 		listview1.setFooter(footer);
 		listview1.loadData();
-		// listview1.setCacheColorHint(0);
-		/*
-		 * listview1.setOnItemClickListener(new OnItemClickListener(){
-		 * 
-		 * @Override public void onItemClick(AdapterView<?> arg0, View arg1, int
-		 * arg2, long arg3) { Intent intent = new Intent();
-		 * intent.setClass(MainActivity.this,ViewMessageActivity.class);
-		 * startActivity(intent); }
-		 * 
-		 * });
-		 */
+		
+		View footer2 = LayoutInflater.from(this).inflate(R.layout.footer, null);
 
-		ContactAdapter hc = new ContactAdapter(this, getContact());
-		listview2.setAdapter(hc);
-		listview2.setCacheColorHint(0);
+		listview2.setContext(this);
+		listview2.setFooter(footer2);
+		listview2.loadData();
+		
+		
+		View footer3 = LayoutInflater.from(this).inflate(R.layout.footer, null);
 
+		listview3.setContext(this);
+		listview3.setFooter(footer3);
+		listview3.loadData();
+		
 		mScrollLayout = (MyScrollLayout) findViewById(R.id.ScrollLayout);
 		LinearLayout linearLayout = (LinearLayout) findViewById(R.id.lllayout);
 		mViewCount = mScrollLayout.getChildCount();

@@ -18,6 +18,7 @@ public class SelectPicPopupWindow extends PopupWindow {
 
 
 	private Button  btn_cancel;
+	private Button btn_account;
 	private View mMenuView;
 
 	public SelectPicPopupWindow(final Activity context,OnClickListener itemsOnClick) {
@@ -29,6 +30,19 @@ public class SelectPicPopupWindow extends PopupWindow {
 		int h = context.getWindowManager().getDefaultDisplay().getHeight();
 		int w = context.getWindowManager().getDefaultDisplay().getWidth();
 		btn_cancel = (Button) mMenuView.findViewById(R.id.btn_cancel);
+		btn_account = (Button)mMenuView.findViewById(R.id.btn_account);
+		
+		btn_account.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent();
+		    	intent.setClass(v.getContext(),UserInfoActivity.class);
+		    	v.getContext().startActivity(intent);	
+		    	SelectPicPopupWindow.this.dismiss();
+			}
+		});
+		
 		btn_cancel.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
@@ -37,7 +51,8 @@ public class SelectPicPopupWindow extends PopupWindow {
 				Intent intent = new Intent();
 	        	intent.setClass(v.getContext(),Exit.class);
 	        	v.getContext().startActivity(intent);
-				//context.finish();
+	        	SelectPicPopupWindow.this.dismiss();
+	        	//context.finish();
 			}
 		});
 		this.setContentView(mMenuView);
@@ -61,7 +76,12 @@ public class SelectPicPopupWindow extends PopupWindow {
 				return true;
 			}
 		});
-
 	}
+	
+/*	public void click_myaccount(View v){
+		Intent intent = new Intent();
+    	intent.setClass(v.getContext(),UserInfoActivity.class);
+    	v.getContext().startActivity(intent);
+	}*/
 
 }
