@@ -38,8 +38,8 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="5dp"
             android:background="@drawable/title_btn_right"
-            android:src="@drawable/mm_title_btn_contact_normal"
-            android:onClick="click_theme_add" />
+            android:onClick="click_theme_add"
+            android:src="@drawable/mm_title_btn_contact_normal" />
     </RelativeLayout>
 
     <LinearLayout
@@ -62,43 +62,12 @@
             android:text="还神多少" />
     </LinearLayout>
 
-    <ScrollView
+    <ListView
+        android:id="@+id/theme_list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#ffececec"
-        android:fadingEdge="none"
-        android:overScrollMode="never" >
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical" >
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/text_field_without_top_border"
-                android:paddingBottom="@dimen/content_padding"
-                android:paddingLeft="@dimen/content_padding"
-                android:paddingRight="@dimen/content_padding"
-                android:paddingTop="10.0dip"
-                android:text="我要要么上山打老虎我要要么上山打老虎我要要么上山打老虎我要要么上山打老虎我要要么上山打老虎"
-                android:textColor="#ff555555"
-                android:textSize="15.0sp" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/content_margin"
-                android:background="@drawable/text_field"
-                android:paddingBottom="10.0dip"
-                android:paddingLeft="@dimen/content_padding"
-                android:paddingRight="@dimen/content_padding"
-                android:paddingTop="10.0dip"
-                android:text="我要要么上山打老虎我要要么上山打老虎我要要么上山打老虎我要要么上山打老虎我要要么上山打老虎"
-                android:textColor="#ff888888"
-                android:textSize="17.0sp" />
-        </LinearLayout>
-    </ScrollView>
-
+        android:background="@color/white" >
+    </ListView>
+    
+	
 </LinearLayout>
