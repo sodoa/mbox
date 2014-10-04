@@ -44,10 +44,6 @@
             android:name="Exit"
             android:theme="@style/MyDialogStyle" >
         </activity>
-         <activity
-            android:name="Complian"
-            android:theme="@style/Anim_style_title" >
-        </activity>
         <!--
         <activity
             android:name=".Appstart"
@@ -113,7 +109,10 @@
                   <activity
             android:name="ContactInfoActivity"
             android:theme="@style/Anim_style2" />                    
-        
+                 <activity
+            android:name=".Complian"
+            android:theme="@style/Anim_style2" >
+        </activity>
         <activity
             android:name="com.xinfan.blueblue.activity.MainActivity"
             android:screenOrientation="portrait" />

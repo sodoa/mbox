@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#eee"
-    android:gravity="center_horizontal"
     android:orientation="vertical" >
-
+    
     <RelativeLayout
-        android:id="@+id/complain_top_layout"
+        android:id="@+id/title"
         android:layout_width="fill_parent"
         android:layout_height="45dp"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/title_bar" >
+        android:background="@drawable/title_bar"
+        android:gravity="center_vertical" >
 
        
         <Button
@@ -25,18 +24,15 @@
             android:textSize="14sp" 
             android:onClick="ComplianBack"
             />
-           <Button
-            android:id="@+id/complain_send_btn"
-       		 android:layout_width="65dp"
+        <ImageButton
+            android:onClick="send_private_message"
+            android:layout_width="67dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="5dp"
-         
-            android:onClick="complain_send"
-            android:text="发送"
-            android:textColor="#fff"
-            android:textSize="14sp" />
+            android:background="@drawable/title_btn_right"
+            android:src="@drawable/mm_title_btn_menu" />
       
         <TextView
             android:layout_width="wrap_content"
@@ -50,16 +46,13 @@
 
     <EditText
         android:id="@+id/complainText"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/login_top_layout"
+        android:layout_alignParentTop="true"
         android:ems="10"
         android:inputType="textMultiLine" >
 
         <requestFocus />
     </EditText>
 
-</RelativeLayout>
+</LinearLayout>
