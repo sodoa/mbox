@@ -4,7 +4,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="14"
         android:targetSdkVersion="15" />
 
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -104,7 +104,15 @@
             android:theme="@style/Anim_style2" /> 
          <activity
             android:name="ViewMessageActivity"
-            android:theme="@style/Anim_style2" />            
+            android:theme="@style/Anim_style2" />         
+            
+                  <activity
+            android:name="UserInfoActivity"
+            android:theme="@style/Anim_style2" />  
+            
+                  <activity
+            android:name="ContactInfoActivity"
+            android:theme="@style/Anim_style2" />                    
         
         <activity
             android:name="com.xinfan.blueblue.activity.MainActivity"
