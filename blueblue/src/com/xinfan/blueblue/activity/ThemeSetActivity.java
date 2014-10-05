@@ -3,18 +3,14 @@ package com.xinfan.blueblue.activity;
 import java.util.ArrayList;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnLongClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.xinfan.blueblue.activity.adapter.ThemeSetAdapter;
-import com.xinfan.blueblue.util.DialogTool;
 import com.xinfan.blueblue.vo.ThemeVo;
 
 public class ThemeSetActivity extends Activity {
@@ -22,14 +18,18 @@ public class ThemeSetActivity extends Activity {
 
 	private ListView themeList;
 
-	private ArrayList list = new ArrayList();
+	public ArrayList list = new ArrayList();
+	
+	public static  ThemeSetActivity instance;
 
-	private ThemeSetAdapter adapter;
+	public ThemeSetAdapter adapter;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.theme_set);
-
+		
+		instance = this;
+		
 		ThemeVo first = new ThemeVo();
 		first.setId("1");
 		first.setText("如何实现长按列表弹出对话框 [复制链接111111111111]");
@@ -54,15 +54,10 @@ public class ThemeSetActivity extends Activity {
 			public boolean onItemLongClick(AdapterView<?> arg0, View view, int position, long arg3) {
 				ThemeVo vo = (ThemeVo)  list.get(position);
 				if (vo != null) {
-					DialogTool.createNormalDialog(ThemeSetActivity.this, R.drawable.icon, "长按时间", vo.getText(), "确定",
-							new android.content.DialogInterface.OnClickListener() {
-
-								@Override
-								public void onClick(DialogInterface arg0, int arg1) {
-									//ThemeSetActivity.this.finish();
-									arg0.cancel();
-								}
-							}).show();
+					Intent intent = new Intent();
+					intent.putExtra("themeid", vo.getId());
+					intent.setClass(ThemeSetActivity.this, ThemeSetMenu.class);
+					startActivity(intent);
 				}
 
 				return false;

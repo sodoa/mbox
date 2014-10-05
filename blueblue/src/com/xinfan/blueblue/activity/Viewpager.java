@@ -20,7 +20,7 @@ public class Viewpager extends Activity {
     /** Called when the activity is first created. */
 	private ViewPager mViewPager;	
 	private PagerTitleStrip mPagerTitleStrip;
-	private ImageView mPageImg;// ¶¯»­Í¼Æ¬
+	private ImageView mPageImg;// ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
 	private int currIndex = 0;
 	private ImageView mPage0;
 	private ImageView mPage1;
@@ -53,7 +53,7 @@ public class Viewpager extends Activity {
         mPage8 = (ImageView)findViewById(R.id.page8);
         
         
-        //½«Òª·ÖÒ³ÏÔÊ¾µÄView×°ÈëÊý×éÖÐ
+        //ï¿½ï¿½Òªï¿½ï¿½Ò³ï¿½ï¿½Ê¾ï¿½ï¿½View×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         LayoutInflater mLi = LayoutInflater.from(this);
         View view1 = mLi.inflate(R.layout.view1, null);
         View view2 = mLi.inflate(R.layout.view2, null);
@@ -65,7 +65,7 @@ public class Viewpager extends Activity {
         View view8 = mLi.inflate(R.layout.view8, null);
         View view9 = mLi.inflate(R.layout.view9, null);
         	    
-        //Ã¿¸öÒ³ÃæµÄviewÊý¾Ý
+        //Ã¿ï¿½ï¿½Ò³ï¿½ï¿½ï¿½viewï¿½ï¿½ï¿½
         final ArrayList<View> views = new ArrayList<View>();
         views.add(view1);
         views.add(view2);
@@ -78,18 +78,18 @@ public class Viewpager extends Activity {
         views.add(view9);
         
         final ArrayList<String> titles = new ArrayList<String>();
-        titles.add("¢Ù");
-        titles.add("¢Ú");
-        titles.add("¢Û");
-        titles.add("¢Ü");
-        titles.add("¢Ý");
-        titles.add("¢Þ");
-        titles.add("¢ß");
-        titles.add("¢à");
+        titles.add("ï¿½ï¿½");
+        titles.add("ï¿½ï¿½");
+        titles.add("ï¿½ï¿½");
+        titles.add("ï¿½ï¿½");
+        titles.add("ï¿½ï¿½");
+        titles.add("ï¿½ï¿½");
+        titles.add("ï¿½ï¿½");
+        titles.add("ï¿½ï¿½");
         titles.add(" ");
         
         
-        //Ìî³äViewPagerµÄÊý¾ÝÊÊÅäÆ÷
+        //ï¿½ï¿½ï¿½ViewPagerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         PagerAdapter mPagerAdapter = new PagerAdapter() {
 			
 			@Override
@@ -124,8 +124,8 @@ public class Viewpager extends Activity {
     
     public class MyOnPageChangeListener implements OnPageChangeListener {
 
-		//int one = offset * 2 + bmpW;// Ò³¿¨1 -> Ò³¿¨2 Æ«ÒÆÁ¿
-		//int two = one * 2;// Ò³¿¨1 -> Ò³¿¨3 Æ«ÒÆÁ¿
+		//int one = offset * 2 + bmpW;// Ò³ï¿½ï¿½1 -> Ò³ï¿½ï¿½2 Æ«ï¿½ï¿½
+		//int two = one * 2;// Ò³ï¿½ï¿½1 -> Ò³ï¿½ï¿½3 Æ«ï¿½ï¿½
     	//int move = 20;
 
 		@Override
@@ -224,9 +224,9 @@ public class Viewpager extends Activity {
 				break;
 			}
 			currIndex = arg0;
-			animation.setFillAfter(true);// True:Í¼Æ¬Í£ÔÚ¶¯»­½áÊøÎ»ÖÃ
+			animation.setFillAfter(true);// True:Í¼Æ¬Í£ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 			animation.setDuration(300);
-			//mPageImg.startAnimation(animation);
+			mPageImg.startAnimation(animation);
 		}
 		@Override
 		public void onPageScrolled(int arg0, float arg1, int arg2) {

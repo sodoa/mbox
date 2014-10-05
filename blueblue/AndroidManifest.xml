@@ -115,7 +115,11 @@
             android:theme="@style/Anim_style2" />
          <activity
             android:name=".ThemeInputActivity"
-            android:theme="@style/Anim_style2" />       
+            android:theme="@style/Anim_style2" />     
+            
+         <activity
+            android:name=".ThemeSetMenu"
+            android:theme="@style/MyDialogStyle" />            
         
         <activity
             android:name="com.xinfan.blueblue.activity.MainActivity"

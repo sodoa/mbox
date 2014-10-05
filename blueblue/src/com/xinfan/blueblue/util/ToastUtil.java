@@ -76,13 +76,14 @@ public class ToastUtil {
 					@Override
 					public void run() {
 						synchronized (synObj) {
-							if (toast != null) {
+/*							if (toast != null) {
 								toast.cancel();
 								toast.setText(msg);
 								toast.setDuration(len);
 							} else {
 								toast = Toast.makeText(act, msg, len);
-							}
+							}*/
+							toast = Toast.makeText(act, msg, len);
 							toast.show();
 						}
 					}
@@ -108,13 +109,14 @@ public class ToastUtil {
 					@Override
 					public void run() {
 						synchronized (synObj) {
-							if (toast != null) {
+/*							if (toast != null) {
 								toast.cancel();
 								toast.setText(msg);
 								toast.setDuration(len);
 							} else {
 								toast = Toast.makeText(act, msg, len);
-							}
+							}*/
+							toast = Toast.makeText(act, msg, len);
 							toast.show();
 						}
 					}
