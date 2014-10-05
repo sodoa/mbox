@@ -43,6 +43,7 @@ public class ThemeInputActivity extends Activity {
 				theme.setText(str);
 				ThemeSetActivity.instance.list.add(theme);
 				ThemeSetActivity.instance.adapter.notifyDataSetChanged();
+				ThemeSetActivity.instance.reCountTip();
 
 				ToastUtil.showMessage(ThemeInputActivity.this, "添加主题成功");
 

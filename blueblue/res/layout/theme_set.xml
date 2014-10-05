@@ -48,18 +48,22 @@
         android:orientation="horizontal" >
 
         <TextView
+            android:id="@+id/theme_count_current"
             android:layout_width="fill_parent"
             android:layout_height="20dp"
             android:layout_weight="1"
             android:background="@drawable/text_field_without_top_border"
-            android:text="还神多少" />
+            android:text="还神多少"
+            android:textColor="@color/red"/>
 
         <TextView
+            android:id="@+id/theme_count_max"
             android:layout_width="fill_parent"
             android:layout_height="20dp"
             android:layout_weight="1"
             android:background="@drawable/text_field_without_top_border"
-            android:text="还神多少" />
+            android:text="还神多少" 
+            android:textColor="@color/red"/>
     </LinearLayout>
 
     <ListView

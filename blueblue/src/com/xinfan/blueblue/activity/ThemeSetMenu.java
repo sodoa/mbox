@@ -58,6 +58,7 @@ public class ThemeSetMenu extends Activity {
 			if (vo.getId().equals(id)) {
 				list.remove(vo);
 				ThemeSetActivity.instance.adapter.notifyDataSetChanged();
+				ThemeSetActivity.instance.reCountTip();
 				ToastUtil.showMessage(v.getContext(), "删除主题成功");
 				break;
 			}
