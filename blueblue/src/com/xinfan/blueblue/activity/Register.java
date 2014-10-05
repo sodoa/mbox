@@ -114,6 +114,7 @@ public class Register extends Activity {
             Intent intent = new Intent();
             intent.setClass(Register.this,LoadingActivity.class);
             startActivity(intent);
+            this.finish();
         }
     }
     public void register_back(View v) {     //返回

@@ -57,8 +57,8 @@ public class Login extends Activity {
 	}
 
 	public void login_pw(View v) {
-		Uri uri = Uri.parse("http://3g.qq.com");
-		Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+		Intent intent = new Intent();
+		intent.setClass(Login.this,ForgetPassword.class);
 		startActivity(intent);
 		// Intent intent = new Intent();
 		// intent.setClass(Login.this,Whatsnew.class);
