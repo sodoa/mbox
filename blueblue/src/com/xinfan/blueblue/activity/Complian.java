@@ -2,6 +2,7 @@ package com.xinfan.blueblue.activity;
 
 
 import com.xinfan.blueblue.activity.R.id;
+import com.xinfan.blueblue.util.ToastUtil;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -27,17 +28,12 @@ public class Complian extends Activity {
 		// TODO Auto-generated method stub
 		ComplainText=mComplainText.getText().toString();
 		if(ComplainText==null||ComplainText.equals("")){
-			new AlertDialog.Builder(Complian.this)
-			.setIcon(getResources().getDrawable(R.drawable.login_error_icon))
-			.setMessage("请先编辑内容！")
-			.create().show();
+			 ToastUtil.showMessage(Complian.this, "请先编辑内容！");
 		}
 		else{
-			new AlertDialog.Builder(Complian.this)
-			.setIcon(getResources().getDrawable(R.drawable.login_editbox))
-			.setMessage("发送成功！")
-			.create().show();
-		}
+			   ToastUtil.showMessage(Complian.this, "发送成功！");
+			   }
+				this.finish();
 	}
 	  public void ComplianBack(View v) {     //返回
 	      	this.finish();
