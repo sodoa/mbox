@@ -93,8 +93,13 @@
             android:name="MainTopRightDialog"
             android:theme="@style/MyDialogStyleTop" />
         <activity
-            android:name="SendMessageActivity"
+            android:name=".send.SendMessageActivity"
             android:theme="@style/Anim_style2" />
+        
+        <activity
+            android:name=".send.TimeSelectActivity"
+            android:theme="@style/MyDialogStyle" />        
+        
         <activity
             android:name="ThemeSetActivity"
             android:theme="@style/Anim_style2" />

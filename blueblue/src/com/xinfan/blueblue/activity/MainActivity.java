@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.xinfan.blueblue.activity.send.SendMessageActivity;
+
 public class MainActivity extends Activity implements OnViewChangeListener, OnClickListener {
 
 	public static MainActivity instance;
