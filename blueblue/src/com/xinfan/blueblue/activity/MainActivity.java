@@ -1,7 +1,5 @@
 package com.xinfan.blueblue.activity;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -13,7 +11,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements OnViewChangeListener, OnClickListener {
@@ -36,7 +33,7 @@ public class MainActivity extends Activity implements OnViewChangeListener, OnCl
 
 	private MessageListView listview1;
 	private SendedMessageListView listview2;
-	private ContactListView listview3;
+	public ContactListView listview3;
 
 	SelectPicPopupWindow menuWindow;
 	SelectAddPopupWindow menuWindow2;
@@ -114,82 +111,6 @@ public class MainActivity extends Activity implements OnViewChangeListener, OnCl
 				uploadImage2(MainActivity.this);
 			}
 		});
-	}
-
-	private ArrayList<ContactP> getContact() {
-		ArrayList<ContactP> hcList = new ArrayList<ContactP>();
-		ContactP c0 = new ContactP();
-		c0.setTxPath(R.drawable.bind_mcontact_reco_friends + "");
-		c0.setName("�����");
-
-		ContactP c1 = new ContactP();
-		c1.setTxPath(R.drawable.brand_default_head + "");
-		c1.setName("΢�Ų����˺�");
-
-		ContactP c2 = new ContactP();
-		c2.setTxPath(R.drawable.bind_qq_icon + "");
-		c2.setName("QQ�Ŷ�");
-
-		ContactP c3 = new ContactP();
-		c3.setTxPath(R.drawable.icon + "");
-		c3.setName("΢���Ŷ�");
-
-		ContactP c4 = new ContactP();
-		c4.setTxPath(R.drawable.xiaohei + "");
-		c4.setName("С��");
-
-		ContactP c5 = new ContactP();
-		c5.setTxPath(R.drawable.voip_camerachat + "");
-		c5.setName("��������");
-
-		ContactP c6 = new ContactP();
-		c6.setTxPath(R.drawable.searadd_icon + "");
-		c6.setName("ɵ�Ʋ���");
-
-		ContactP c7 = new ContactP();
-		c7.setTxPath(R.drawable.personactivity_cover_heart + "");
-		c7.setName("Ф��");
-
-		ContactP c8 = new ContactP();
-		c8.setTxPath(R.drawable.headshow2 + "");
-		c8.setName("��������");
-
-		ContactP c9 = new ContactP();
-		c9.setTxPath(R.drawable.headshow3 + "");
-		c9.setName("EatEvery");
-
-		ContactP c10 = new ContactP();
-		c10.setTxPath(R.drawable.headshow4 + "");
-		c10.setName("����");
-
-		ContactP c11 = new ContactP();
-		c11.setTxPath(R.drawable.headshow5 + "");
-		c11.setName("������");
-
-		ContactP c12 = new ContactP();
-		c12.setTxPath(R.drawable.headshow6 + "");
-		c12.setName("Diacker");
-
-		ContactP c13 = new ContactP();
-		c13.setTxPath(R.drawable.headshow1 + "");
-		c13.setName("���");
-
-		hcList.add(c0);
-		hcList.add(c1);
-		hcList.add(c2);
-		hcList.add(c3);
-		hcList.add(c4);
-		hcList.add(c5);
-		hcList.add(c6);
-		hcList.add(c7);
-		hcList.add(c8);
-		hcList.add(c9);
-		hcList.add(c10);
-		hcList.add(c11);
-		hcList.add(c12);
-		hcList.add(c13);
-
-		return hcList;
 	}
 
 	public void uploadImage(final Activity context) {

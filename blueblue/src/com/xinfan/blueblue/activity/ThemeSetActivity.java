@@ -86,7 +86,7 @@ public class ThemeSetActivity extends Activity {
 
 	public void click_theme_add(View view) {
 
-		if (list.size() > this.maxsize) {
+		if (list.size() >= this.maxsize) {
 			AlertHelper.showNormalTips(this, "主题发布提示", "您最大的发布数量是" + maxsize);
 			return;
 		}

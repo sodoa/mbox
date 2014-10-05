@@ -2,8 +2,6 @@ package com.xinfan.blueblue.activity;
 
 import java.util.ArrayList;
 
-import com.xinfan.blueblue.activity.ContactAdapter.H;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +10,13 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.xinfan.blueblue.vo.ContactVo;
+
 public class Contact2Adapter extends BaseAdapter {
 	private Context context;
-	private ArrayList<HuiHua> list = new ArrayList<HuiHua>();
-	
-	public Contact2Adapter(Context context,ArrayList<HuiHua> list){
+	private ArrayList<ContactVo> list = new ArrayList<ContactVo>();
+
+	public Contact2Adapter(Context context, ArrayList<ContactVo> list) {
 		this.context = context;
 		this.list = list;
 	}
@@ -38,30 +38,20 @@ public class Contact2Adapter extends BaseAdapter {
 		return position;
 	}
 
-
 	@Override
 	public View getView(int position, View view, ViewGroup parent) {
-		HuiHua hh = list.get(position);
-		H h = null;
-		if(view==null){
-			h = new H();
+		ContactVo hh = list.get(position);
+		if (view == null) {
 			view = LayoutInflater.from(context).inflate(R.layout.contact_list_item, parent, false);
-			h.pic = (ImageView)view.findViewById(R.id.tx1);
-			h.name = (TextView)view.findViewById(R.id.tx2);
-			
-			view.setTag(h);
-		}else{
-			h = (H)view.getTag();
 		}
-		
-		//h.pic.setImageResource(Integer.parseInt(hh.getTxPath()));
-		h.name.setText(hh.getName1());
-		
+
+		ImageView pic = (ImageView) view.findViewById(R.id.tx1);
+		TextView name = (TextView) view.findViewById(R.id.tx2);
+
+		name.setText(hh.getMark());
+		view.setTag(hh);
+
 		return view;
 	}
 
-	class H{
-		ImageView pic;
-		TextView name;
-	}
 }
