@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/contact_layout_top"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#eee"
@@ -32,13 +33,14 @@
             android:textSize="20sp" />
 
         <ImageButton
-            android:onClick="send_private_message"
+            android:id="@+id/contact_menu"
             android:layout_width="67dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="5dp"
             android:background="@drawable/title_btn_right"
+            android:onClick="onClickMenu"
             android:src="@drawable/mm_title_btn_menu" />
     </RelativeLayout>
 
@@ -53,7 +55,6 @@
             android:gravity="center_horizontal"
             android:orientation="vertical" >
 
-            
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -77,6 +78,7 @@
                         android:textSize="17sp" />
 
                     <TextView
+                        android:id="@+id/contact_account"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
@@ -105,6 +107,7 @@
                         android:textSize="17sp" />
 
                     <TextView
+                        android:id="@+id/contact_username"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
@@ -115,6 +118,7 @@
                         android:textColor="#000"
                         android:textSize="15sp" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -132,6 +136,7 @@
                         android:textSize="17sp" />
 
                     <TextView
+                        android:id="@+id/contact_mark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
@@ -142,8 +147,8 @@
                         android:textColor="#000"
                         android:textSize="15sp" />
                 </RelativeLayout>
-                
-  <RelativeLayout
+
+                <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/preference_item"
@@ -160,6 +165,7 @@
                         android:textSize="17sp" />
 
                     <TextView
+                        android:id="@+id/contact_credit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
@@ -169,7 +175,7 @@
                         android:text="18782339283"
                         android:textColor="#000"
                         android:textSize="15sp" />
-                </RelativeLayout>                
+                </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
