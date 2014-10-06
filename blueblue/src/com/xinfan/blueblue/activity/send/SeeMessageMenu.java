@@ -17,8 +17,8 @@ import com.xinfan.blueblue.util.ToastUtil;
 
 public class SeeMessageMenu extends PopupWindow {
 
-	private Button btnDel;
-	private Button btnResend;
+	private View btnDel;
+	private View btnResend;
 	private View mMenuView;
 
 	public SeeMessageMenu(final Activity context) {
@@ -28,8 +28,8 @@ public class SeeMessageMenu extends PopupWindow {
 
 		int h = context.getWindowManager().getDefaultDisplay().getHeight();
 		int w = context.getWindowManager().getDefaultDisplay().getWidth();
-		btnDel = (Button) mMenuView.findViewById(R.id.btn_see_message_menu_del);
-		btnResend = (Button) mMenuView.findViewById(R.id.btn_see_message_menu_resend);
+		btnDel = (View) mMenuView.findViewById(R.id.btn_see_message_menu_del);
+		btnResend = (View) mMenuView.findViewById(R.id.btn_see_message_menu_resend);
 
 		btnResend.setOnClickListener(new OnClickListener() {
 
