@@ -82,11 +82,12 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/time_select_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:orientation="horizontal" android:id="@+id/time_select_layout" >
+        android:orientation="horizontal" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -115,8 +116,10 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/area_select_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:focusable="true"
         android:focusableInTouchMode="true"
         android:orientation="horizontal" >
 
@@ -126,7 +129,6 @@
             android:layout_weight="1"
             android:background="@drawable/selector_text_field"
             android:gravity="center_vertical"
-            android:hint="地域范围"
             android:paddingLeft="@dimen/content_padding"
             android:paddingRight="@dimen/content_padding"
             android:text="地域范围"
@@ -134,12 +136,12 @@
             android:textSize="16.0sp" />
 
         <TextView
+            android:id="@+id/area_select_label"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/cell_height"
             android:layout_weight="1"
             android:background="@drawable/selector_text_field"
             android:gravity="center_vertical"
-            android:hint="地域范围"
             android:paddingLeft="@dimen/content_padding"
             android:paddingRight="@dimen/content_padding"
             android:text="地域范围"
@@ -150,8 +152,10 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:focusable="true"
         android:focusableInTouchMode="true"
-        android:orientation="horizontal" >
+        android:orientation="horizontal" 
+        android:id="@+id/money_select_layout">
 
         <TextView
             android:layout_width="wrap_content"
@@ -161,11 +165,12 @@
             android:gravity="center_vertical"
             android:paddingLeft="@dimen/content_padding"
             android:paddingRight="@dimen/content_padding"
-            android:text="有偿金额"
+            android:text="有偿金额（元）"
             android:textColor="@color/color_3"
             android:textSize="16.0sp" />
 
         <TextView
+            android:id="@+id/money_select_label"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/cell_height"
             android:layout_weight="1"
@@ -186,6 +191,7 @@
         android:orientation="vertical" >
 
         <TextView
+            android:id="@+id/send_message_btn"
             android:layout_width="fill_parent"
             android:layout_height="@dimen/cell_height"
             android:layout_marginTop="20.0dip"

@@ -16,14 +16,15 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.xinfan.blueblue.activity.send.SendMessageVo;
 import com.xinfan.blueblue.test.MessageListDataService;
 
 public class SendedMessageListView extends ListView implements OnScrollListener, OnItemClickListener {
 
-	ArrayList list = new ArrayList();
+	ArrayList<SendMessageVo> list = new ArrayList<SendMessageVo>();
 
 	SendHistoryAdapter ad;
-	
+
 	Context context;
 
 	// 底部footer
@@ -84,31 +85,30 @@ public class SendedMessageListView extends ListView implements OnScrollListener,
 	}
 
 	public void setList(List list) {
-		this.list = (ArrayList)list;
+		this.list = (ArrayList) list;
 	}
 
 	public void setContext(Context context) {
 		this.context = context;
 	}
 
-	public void loadData(){
-		//list = (ArrayList) MessageListDataService.getData(pageSize, 1);
+	public void loadData() {
+		// list = (ArrayList) MessageListDataService.getData(pageSize, 1);
 		ad = new SendHistoryAdapter(this.context, list);
-		
+
 		addFooterView(footer);
 		setAdapter(ad);
-		//removeFooterView(footer);
+		// removeFooterView(footer);
 		setOnItemClickListener(this);
 		setOnScrollListener(this);
 		getFirstData();
-		
-		
+
 	}
-	
-	private void getFirstData(){
-		
+
+	private void getFirstData() {
+
 		isLoading = true;
-		
+
 		new Thread() {
 			@Override
 			public void run() {
@@ -117,7 +117,7 @@ public class SendedMessageListView extends ListView implements OnScrollListener,
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				List addList = MessageListDataService.getData(pageSize, 1);
+				List addList = MessageListDataService.getSendMessageData(pageSize, 1);
 				handler.sendMessage(handler.obtainMessage(1, addList));
 			}
 		}.start();
@@ -147,7 +147,7 @@ public class SendedMessageListView extends ListView implements OnScrollListener,
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-						List list = MessageListDataService.getData(pageSize, page + 1);
+						List list = MessageListDataService.getSendMessageData(pageSize, page + 1);
 						handler.sendMessage(handler.obtainMessage(1, list));
 					}
 				}.start();
@@ -175,81 +175,10 @@ public class SendedMessageListView extends ListView implements OnScrollListener,
 	public void setFooter(View footer) {
 		this.footer = footer;
 	}
-	
 
-	private ArrayList<HuiHua> getHuahui() {
-		ArrayList<HuiHua> hhList = new ArrayList<HuiHua>();
-		HuiHua h1 = new HuiHua();
-		h1.setTxPath(R.drawable.icon + "");
-		h1.setName1("Ф��");
-		h1.setLastContent("����Ψһһ���������");
-		h1.setLastTime("���� 18:00");
-
-		HuiHua h2 = new HuiHua();
-		h2.setTxPath(R.drawable.xiaohei + "");
-		h2.setName1("С��");
-		h2.setLastContent("�Ҵ����:�ĺڰ��У���ϲ�����ɹ�������");
-		h2.setLastTime("���� 17:40");
-
-		HuiHua h3 = new HuiHua();
-		h3.setTxPath(R.drawable.searadd_icon + "");
-		h3.setName1("ɵ�Ʋ���");
-		h3.setLastContent("ɵ�Ʋ��ޣ�վ��4�¸ҵ�ߣ");
-		h3.setLastTime("���� 17:00");
-
-		HuiHua h4 = new HuiHua();
-		h4.setTxPath(R.drawable.voip_camerachat + "");
-		h4.setName1("���ٵ�����");
-		h4.setLastContent("�Ӵ˲��ٵ����ޣ���Ҫ������");
-		h4.setLastTime("���� 16:22");
-
-		HuiHua h5 = new HuiHua();
-		h5.setTxPath(R.drawable.headshow2 + "");
-		h5.setName1("��������");
-		h5.setLastContent("�紵�ú����£���Ʈ�����ϱߵ����");
-		h5.setLastTime("���� 16:11");
-
-		HuiHua h6 = new HuiHua();
-		h6.setTxPath(R.drawable.headshow3 + "");
-		h6.setName1("EatEvery");
-		h6.setLastContent("Don't look me, I will eat you, Are you know");
-		h6.setLastTime("���� 15:08");
-
-		HuiHua h7 = new HuiHua();
-		h7.setTxPath(R.drawable.headshow4 + "");
-		h7.setName1("����");
-		h7.setLastContent("û����ô��Čţ��Ͳ�ҪװB");
-		h7.setLastTime("���� 15:01");
-
-		HuiHua h8 = new HuiHua();
-		h8.setTxPath(R.drawable.headshow5 + "");
-		h8.setName1("������");
-		h8.setLastContent("�Ҿ�����ôһ���ˣ�����ϲ��һ���ˣ������ǲ���һ����");
-		h8.setLastTime("���� 14:50");
-
-		HuiHua h9 = new HuiHua();
-		h9.setTxPath(R.drawable.headshow6 + "");
-		h9.setName1("Diacker");
-		h9.setLastContent("this is very good fill");
-		h9.setLastTime("���� 14:00");
-
-		HuiHua h0 = new HuiHua();
-		h0.setTxPath(R.drawable.headshow1 + "");
-		h0.setName1("����漱");
-		h0.setLastContent("���Ǹ�ϲ���͵��ˣ���������һ��Ҫ�������ҵ����֣��ٸ���˵��");
-		h0.setLastTime("���� 12:00");
-
-		hhList.add(h1);
-		hhList.add(h2);
-		hhList.add(h3);
-		hhList.add(h4);
-		hhList.add(h5);
-		hhList.add(h6);
-		hhList.add(h7);
-		hhList.add(h8);
-		hhList.add(h9);
-		hhList.add(h0);
-		return hhList;
+	public void addItem(SendMessageVo vo) {
+		this.list.add(0,vo);
+		this.ad.notifyDataSetChanged();
 	}
 
 }

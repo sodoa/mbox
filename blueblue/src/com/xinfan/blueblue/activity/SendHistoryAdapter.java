@@ -10,11 +10,13 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.xinfan.blueblue.activity.send.SendMessageVo;
+
 public class SendHistoryAdapter extends BaseAdapter {
 	private Context context;
-	private ArrayList<HuiHua> list = new ArrayList<HuiHua>();
-	
-	public SendHistoryAdapter(Context context,ArrayList<HuiHua> list){
+	private ArrayList<SendMessageVo> list = new ArrayList<SendMessageVo>();
+
+	public SendHistoryAdapter(Context context, ArrayList<SendMessageVo> list) {
 		this.context = context;
 		this.list = list;
 	}
@@ -38,33 +40,23 @@ public class SendHistoryAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View view, ViewGroup parent) {
-		HuiHua hh = list.get(position);
-		H h = null;
-		if(view==null){
-			h = new H();
+		SendMessageVo hh = list.get(position);
+		if (view == null) {
 			view = LayoutInflater.from(context).inflate(R.layout.send_history, parent, false);
-			//h.pic = (ImageView)view.findViewById(R.id.l1);
-			h.name = (TextView)view.findViewById(R.id.name);
-			h.time = (TextView)view.findViewById(R.id.time);
-			h.lastmsg = (TextView)view.findViewById(R.id.lastmsg);
-			
-			view.setTag(h);
-		}else{
-			h = (H)view.getTag();
+			// h.pic = (ImageView)view.findViewById(R.id.l1);
+			view.setTag(hh);
 		}
-		
-		//h.pic.setImageResource(Integer.parseInt(hh.getTxPath()));
-		h.name.setText(hh.getName1());
-		h.time.setText(hh.getLastTime());
-		h.lastmsg.setText(hh.getLastContent());
-		
+
+		TextView name = (TextView) view.findViewById(R.id.name);
+		TextView time = (TextView) view.findViewById(R.id.time);
+		TextView lastmsg = (TextView) view.findViewById(R.id.lastmsg);
+
+		// h.pic.setImageResource(Integer.parseInt(hh.getTxPath()));
+		name.setText(hh.getTitle());
+		time.setText(hh.getTime());
+		lastmsg.setText(hh.getContent());
+
 		return view;
 	}
 
-	class H{
-		ImageView pic;
-		TextView name;
-		TextView time;
-		TextView lastmsg;
-	}
 }

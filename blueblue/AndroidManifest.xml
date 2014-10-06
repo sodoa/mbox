@@ -95,11 +95,15 @@
         <activity
             android:name=".send.SendMessageActivity"
             android:theme="@style/Anim_style2" />
-        
         <activity
             android:name=".send.TimeSelectActivity"
-            android:theme="@style/MyDialogStyle" />        
-        
+            android:theme="@style/MyDialogStyle" />
+        <activity
+            android:name=".send.MoneyInputActivity"
+            android:theme="@style/MyDialogStyle" />
+        <activity
+            android:name=".send.AreaSelectActivity"
+            android:theme="@style/MyDialogStyle" />
         <activity
             android:name="ThemeSetActivity"
             android:theme="@style/Anim_style2" />
@@ -118,14 +122,12 @@
         <activity
             android:name=".UpdateVersionActivity"
             android:theme="@style/Anim_style2" />
-         <activity
+        <activity
             android:name=".ThemeInputActivity"
-            android:theme="@style/Anim_style2" />     
-            
-         <activity
+            android:theme="@style/Anim_style2" />
+        <activity
             android:name=".ThemeSetMenu"
-            android:theme="@style/MyDialogStyle" />            
-        
+            android:theme="@style/MyDialogStyle" />
         <activity
             android:name="com.xinfan.blueblue.activity.MainActivity"
             android:screenOrientation="portrait" />

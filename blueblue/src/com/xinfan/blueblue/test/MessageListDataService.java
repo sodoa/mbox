@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.xinfan.blueblue.activity.HuiHua;
+import com.xinfan.blueblue.activity.send.SendMessageVo;
 import com.xinfan.blueblue.vo.ContactVo;
 
 public class MessageListDataService {
@@ -34,6 +35,23 @@ public class MessageListDataService {
 			map.setUserid("userid" + i);
 			map.setUsername("用户名:" + i);
 			map.setCredit("10");
+			list.add(map);
+		}
+		return list;
+	}
+
+	public static List<SendMessageVo> getSendMessageData(int pageSize, int page) {
+		List<SendMessageVo> list = new ArrayList<SendMessageVo>();
+		int index = (pageSize * (page - 1) + 1);
+		int max = pageSize * page;
+		for (int i = index; i <= max; i++) {
+			SendMessageVo map = new SendMessageVo();
+			map.setIndex(index);
+			map.setArea("地区：" + i);
+			map.setContent("更多内容：" + i);
+			map.setMoney("金额:" + i);
+			map.setTitle("标题：" + i);
+
 			list.add(map);
 		}
 		return list;

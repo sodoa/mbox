@@ -33,8 +33,8 @@ public class MainActivity extends Activity implements OnViewChangeListener, OnCl
 
 	private boolean isOpen = false;
 
-	private MessageListView listview1;
-	private SendedMessageListView listview2;
+	public MessageListView listview1;
+	public SendedMessageListView listview2;
 	public ContactListView listview3;
 
 	SelectPicPopupWindow menuWindow;
