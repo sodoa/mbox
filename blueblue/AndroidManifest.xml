@@ -71,6 +71,18 @@
         <activity
             android:name=".Whatsnew"
             android:theme="@style/Anim_style2" />
+        <!-- 忘记密码 -->
+        <activity
+            android:name=".ForgetPassword"
+            android:theme="@style/Anim_style2" />
+         <!-- 重设密码 -->
+        <activity
+            android:name=".UpdatePassword"
+            android:theme="@style/Anim_style2" />
+         <!--重设昵称-->
+        <activity
+            android:name=".UpdateNickname"
+            android:theme="@style/Anim_style2" />
         <activity
             android:name=".ChatActivity"
             android:theme="@android:style/Theme.NoTitleBar" />
@@ -137,9 +149,14 @@
         <activity
             android:name=".SystemSet"
             android:theme="@style/Anim_style2" />
+         <!--系统升级-->
         <activity
             android:name=".UpdateVersionActivity"
-            android:theme="@style/Anim_style2" />
+            android:theme="@style/MyDialogStyle" />
+         <!--设置接收消息数量-->
+        <activity
+            android:name=".systemset.MessageNumSelectActivity"
+            android:theme="@style/MyDialogStyle" />
         <activity
             android:name=".ThemeInputActivity"
             android:theme="@style/Anim_style2" />
