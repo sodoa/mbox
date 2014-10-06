@@ -41,7 +41,7 @@ public class UpdatePassword extends Activity {
 		}
 	}
 
-	public void password_back(View v) {
+	public void Update_passowrd_back(View v) {
 		this.finish();
 	}
 
