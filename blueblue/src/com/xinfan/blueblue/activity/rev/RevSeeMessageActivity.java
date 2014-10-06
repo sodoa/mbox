@@ -26,13 +26,13 @@ public class RevSeeMessageActivity extends Activity implements OnClickListener {
 
 	public static RevSeeMessageActivity instance;
 
-	public SeeMessageMenu menu;
-	
+	public RevMessageMenu menu;
+
 	public RevMessageVo vo;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.see_message);
+		setContentView(R.layout.rev_message);
 		see_message_more_edit = (TextView) findViewById(R.id.see_message_more_edit);
 		see_message_content_edit = (TextView) findViewById(R.id.see_message_content_edit);
 
@@ -67,8 +67,8 @@ public class RevSeeMessageActivity extends Activity implements OnClickListener {
 	}
 
 	public void onClickMenu(View v) {
-		menu = new SeeMessageMenu(this);
-		menu.showAtLocation(findViewById(R.id.see_message_menu), Gravity.TOP | Gravity.RIGHT, 10, 150);
+		menu = new RevMessageMenu(this);
+		menu.showAtLocation(findViewById(R.id.rev_message_menu), Gravity.TOP | Gravity.RIGHT, 10, 150);
 	}
 
 	@Override
