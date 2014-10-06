@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
@@ -16,14 +17,15 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.xinfan.blueblue.activity.send.SeeMessageActivity;
 import com.xinfan.blueblue.activity.send.SendMessageVo;
 import com.xinfan.blueblue.test.MessageListDataService;
 
 public class SendedMessageListView extends ListView implements OnScrollListener, OnItemClickListener {
 
-	ArrayList<SendMessageVo> list = new ArrayList<SendMessageVo>();
+	public ArrayList<SendMessageVo> list = new ArrayList<SendMessageVo>();
 
-	SendHistoryAdapter ad;
+	public SendHistoryAdapter ad;
 
 	Context context;
 
@@ -158,7 +160,14 @@ public class SendedMessageListView extends ListView implements OnScrollListener,
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		Intent intent = new Intent();
-		intent.setClass(MainActivity.instance, ViewMessageActivity.class);
+		intent.setClass(MainActivity.instance, SeeMessageActivity.class);
+
+		SendMessageVo vo = list.get(arg2);
+		Bundle data = new Bundle();
+		data.putSerializable("vo", vo);
+
+		intent.putExtras(data);
+
 		this.getContext().startActivity(intent);
 	}
 
@@ -177,7 +186,7 @@ public class SendedMessageListView extends ListView implements OnScrollListener,
 	}
 
 	public void addItem(SendMessageVo vo) {
-		this.list.add(0,vo);
+		this.list.add(0, vo);
 		this.ad.notifyDataSetChanged();
 	}
 

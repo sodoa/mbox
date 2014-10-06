@@ -51,6 +51,7 @@ public class MessageListDataService {
 			map.setContent("更多内容：" + i);
 			map.setMoney("金额:" + i);
 			map.setTitle("标题：" + i);
+			map.setTime("时间："+i);
 
 			list.add(map);
 		}
