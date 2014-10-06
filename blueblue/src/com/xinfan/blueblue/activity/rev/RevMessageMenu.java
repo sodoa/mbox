@@ -78,7 +78,8 @@ public class RevMessageMenu extends PopupWindow {
 	}
 
 	public void onClickReport(View v) {
-		ToastUtil.showMessage(v.getContext(), "重新发送成功");
+		Intent intent = new Intent(RevSeeMessageActivity.instance, RevReport.class);
+		v.getContext().startActivity(intent);
 	}
 
 	public void onClickSaveContact(View v) {

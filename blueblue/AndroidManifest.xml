@@ -114,6 +114,9 @@
             android:name=".rev.RevSeeMessageActivity"
             android:theme="@style/Anim_style2" />
         <activity
+            android:name=".rev.RevReport"
+            android:theme="@style/Anim_style2" />
+        <activity
             android:name=".rev.RevAddContactActivity"
             android:theme="@style/MyDialogStyle" />
         <activity
@@ -129,7 +132,7 @@
             android:name="ContactInfoActivity"
             android:theme="@style/Anim_style2" />
         <activity
-            android:name=".Complian"
+            android:name=".RevReport"
             android:theme="@style/Anim_style2" />
         <activity
             android:name=".SystemSet"

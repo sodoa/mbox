@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="rev_report_list">
+        <item>黄色</item>
+        <item>暴力</item>
+        <item>违法</item>
+        <item>其它</item>
+    </string-array>
+
+</resources>
